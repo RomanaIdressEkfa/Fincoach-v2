@@ -11,7 +11,7 @@
   <!-- Fonts: Urbanist + Figtree (Wallex pairing) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Urbanist:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="font-body">
+<body class="font-body home">
 
 <!-- =========================================================
      HEADER — announcement bar + navbar (LoanTube layout)
@@ -76,9 +76,9 @@
 
       <!-- Right -->
       <div class="hidden lg:flex items-center gap-2.5">
-        <a href="login.html" class="nav-text-btn" data-login-open><span class="nt-ic"><i class="fa-regular fa-user"></i></span> Log in</a>
+        <a href="login.html" class="nav-text-btn" data-login-open>Log in</a>
         <a href="apply.html" class="btn btn-dark btn-apply !py-3 !px-6">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="track.html" class="btn btn-track !py-3"><i class="fa-solid fa-location-crosshairs"></i> <span>Track<span class="hidden xl:inline">&nbsp;Application</span></span></a>
+        <a href="track.html" class="btn btn-track !py-3"><span>Track<span class="hidden xl:inline">&nbsp;Application</span></span></a>
       </div>
 
       <!-- Mobile actions -->
@@ -113,7 +113,7 @@
           <div class="rounded-[24px] bg-brand-tint p-6 relative overflow-hidden h-full mega-app">
             <div class="absolute -right-10 -top-10 w-44 h-44 rounded-full bg-grad opacity-10"></div>
             <img src="assets/img/fincoach-logo.png" alt="FinCoach" class="h-8 relative" />
-            <p class="mt-3 font-semibold leading-relaxed text-ink max-w-xs relative">Apply for your loan and track every step from your phone.</p>
+            <p class="mt-3 font-semibold leading-relaxed text-ink max-w-xs relative">App to apply and manage your loan</p>
             <div class="mega-badges relative">
               <a href="#" aria-label="Get it on Google Play"><img src="assets/img/badge-google-play.svg" alt="Get it on Google Play" /></a>
               <a href="#" aria-label="Download on the App Store"><img src="assets/img/badge-app-store.svg" alt="Download on the App Store" /></a>
@@ -200,8 +200,7 @@
           </div>
 
           <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-3" data-aos="fade-up" data-aos-delay="150">
-            <a href="apply.html" class="btn btn-primary !px-8 !py-4">Apply for a loan now <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="#calculator" class="btn btn-white !px-7 !py-4 shadow-sm"><i class="fa-solid fa-calculator text-brand"></i> Check your EMI</a>
+            <a href="apply.html" class="btn btn-primary !px-8 !py-4">Apply now <i class="fa-solid fa-arrow-right"></i></a>
           </div>
 
           <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4" data-aos="fade-up" data-aos-delay="220">
@@ -242,7 +241,7 @@
 
     <!-- Bank logos strip (Wallex style: grayscale, real colour on hover) -->
     <div class="hs-logos">
-      <p class="text-center text-sm text-muted" data-aos="fade-up" data-aos-delay="200">Trusted by <b class="text-ink">25,000+</b> borrowers</p>
+      <p class="text-center text-sm text-muted" data-aos="fade-up" data-aos-delay="200"><b class="text-ink">Our partners</b></p>
       <div class="marquee mt-4 overflow-hidden" id="partners" data-aos="fade-up" data-aos-delay="320">
         <div class="marquee-track logo-track" id="marqueeTrack">
           <img src="assets/img/partners/p1.png" alt="IPDC Finance" />
@@ -268,112 +267,100 @@
         <h2 class="reveal ab5-h2 mt-4">Find the <span class="text-grad">right loan</span> for your needs</h2>
         <p class="reveal mt-3 text-lg text-muted">Explore loans built to help you cover costs, simplify payments or plan for what's next.</p>
       </div>
-      <div class="reveal flex items-center gap-3">
-        <div class="sc-prog hidden sm:block mr-2" aria-hidden="true"><span id="scBar"></span></div>
-        <button type="button" class="sc-arrow" id="scPrev" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
-        <button type="button" class="sc-arrow sc-arrow-main" id="scNext" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
-      </div>
     </div>
 
-    <div class="sc-track mt-10 md:mt-12" id="scTrack" tabindex="0" aria-label="Loan types">
+    <div class="sc-wrap mt-10 md:mt-12">
+    <button type="button" class="sc-edge sc-edge-prev" id="scPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+    <button type="button" class="sc-edge sc-edge-next" id="scNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="sc-track" id="scTrack" tabindex="0" aria-label="Loan types">
       <article class="lc2" data-aos="fade-left" data-aos-delay="0">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-user"></i></span>
           <h3>Personal Loan</h3>
         </div>
         <p>Weddings, education, travel or a big purchase.</p>
-        <a href="loan.html?type=personal" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Money%20bag/3D/money_bag_3d.png" alt="" />
+        <a href="loan.html?type=personal" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Money%20bag/3D/money_bag_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=personal" class="lc2-link" aria-label="Personal Loan"></a>
       </article>
       <article class="lc2" data-aos="fade-left" data-aos-delay="110">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-layer-group"></i></span>
           <h3>Debt Consolidation</h3>
         </div>
         <p>Combine card bills into one easy payment.</p>
-        <a href="loan.html?type=consolidation" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Money%20with%20wings/3D/money_with_wings_3d.png" alt="" />
+        <a href="loan.html?type=consolidation" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Receipt/3D/receipt_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=consolidation" class="lc2-link" aria-label="Debt Consolidation"></a>
       </article>
       <article class="lc2" data-aos="fade-left" data-aos-delay="220">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-umbrella"></i></span>
           <h3>Emergency Loan</h3>
         </div>
         <p>Quick cash for medical bills and urgent repairs.</p>
-        <a href="loan.html?type=emergency" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Umbrella%20with%20rain%20drops/3D/umbrella_with_rain_drops_3d.png" alt="" />
+        <a href="loan.html?type=emergency" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Umbrella%20with%20rain%20drops/3D/umbrella_with_rain_drops_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=emergency" class="lc2-link" aria-label="Emergency Loan"></a>
       </article>
       <article class="lc2" data-aos="fade-left" data-aos-delay="330">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-car"></i></span>
           <h3>Car Loan</h3>
         </div>
         <p>Drive your dream car with up to 70% funding.</p>
-        <a href="loan.html?type=auto" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Automobile/3D/automobile_3d.png" alt="" />
+        <a href="loan.html?type=auto" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Automobile/3D/automobile_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=auto" class="lc2-link" aria-label="Car Loan"></a>
       </article>
       <article class="lc2" data-aos="fade-left" data-aos-delay="0">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-house"></i></span>
           <h3>Home Loan</h3>
         </div>
         <p>Buy, build or renovate with tenures up to 25 years.</p>
-        <a href="loan.html?type=home" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/House%20with%20garden/3D/house_with_garden_3d.png" alt="" />
+        <a href="loan.html?type=home" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/House/3D/house_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=home" class="lc2-link" aria-label="Home Loan"></a>
       </article>
       <article class="lc2" data-aos="fade-left" data-aos-delay="110">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-credit-card"></i></span>
           <h3>Credit Card</h3>
         </div>
         <p>Cashback, rewards and lounge access.</p>
-        <a href="loan.html?type=card" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Credit%20card/3D/credit_card_3d.png" alt="" />
+        <a href="loan.html?type=card" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Credit%20card/3D/credit_card_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=card" class="lc2-link" aria-label="Credit Card"></a>
       </article>
       <article class="lc2" data-aos="fade-left" data-aos-delay="220">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-store"></i></span>
           <h3>Business Loan</h3>
         </div>
         <p>Grow your business with working capital.</p>
-        <a href="loan.html?type=sme" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Convenience%20store/3D/convenience_store_3d.png" alt="" />
+        <a href="loan.html?type=sme" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Convenience%20store/3D/convenience_store_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=sme" class="lc2-link" aria-label="Business Loan"></a>
       </article>
       <article class="lc2" data-aos="fade-left" data-aos-delay="330">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-graduation-cap"></i></span>
           <h3>Education Loan</h3>
         </div>
         <p>Invest in your future with easy repayment.</p>
-        <a href="loan.html?type=education" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Books/3D/books_3d.png" alt="" />
+        <a href="loan.html?type=education" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Graduation%20cap/3D/graduation_cap_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=education" class="lc2-link" aria-label="Education Loan"></a>
       </article>
       <article class="lc2" data-aos="fade-left" data-aos-delay="0">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-plane"></i></span>
           <h3>Travel Loan</h3>
         </div>
         <p>Umrah, Hajj or a family holiday in easy instalments.</p>
-        <a href="loan.html?type=travel" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Airplane/3D/airplane_3d.png" alt="" />
+        <a href="loan.html?type=travel" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Airplane/3D/airplane_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=travel" class="lc2-link" aria-label="Travel Loan"></a>
       </article>
       <article class="lc2" data-aos="fade-left" data-aos-delay="110">
         <div class="lc2-top">
-          <span class="lc2-ic"><i class="fa-solid fa-piggy-bank"></i></span>
           <h3>Deposit Schemes</h3>
         </div>
         <p>Grow your savings with top FDR and DPS rates.</p>
-        <a href="loan.html?type=deposit" class="lc2-btn">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Bank/3D/bank_3d.png" alt="" />
+        <a href="loan.html?type=deposit" class="lc2-btn">Learn More</a>
+        <img class="lc2-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Bank/3D/bank_3d.png" alt="" loading="lazy" />
         <a href="loan.html?type=deposit" class="lc2-link" aria-label="Deposit Schemes"></a>
       </article>
       <!-- ===== Previous loan card design (kept for reference — uncomment to restore) =====
@@ -528,6 +515,7 @@
         </div>
       </article>
       ===== end previous design ===== -->
+    </div>
     </div>
 
   </div>
