@@ -324,6 +324,21 @@
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { if (!paused && !document.hidden) go(1); }, 4500);
   }
 
+  /* ---------- How it works: one bank offer at a time, every 3s ---------- */
+  const hwBanks = $('#hwBanks');
+  if (hwBanks && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const rows = $$('.hw-row', hwBanks);
+    let cur = 0;
+    setInterval(() => {
+      if (document.hidden) return;
+      const prev = rows[cur];
+      cur = (cur + 1) % rows.length;
+      prev.classList.remove('is-on'); prev.classList.add('is-out');
+      setTimeout(() => prev.classList.remove('is-out'), 600);
+      rows[cur].classList.add('is-on');
+    }, 3000);
+  }
+
   /* ---------- Steps visual ---------- */
   const visuals = [
     `<p class="text-sm font-bold text-muted">Step 1 of 4</p>
@@ -332,7 +347,7 @@
        ${[['fa-user', 'Personal', 1], ['fa-car', 'Car & Bike', 0], ['fa-house', 'Home', 0], ['fa-credit-card', 'Credit Card', 0]].map(([i, t, a]) =>
         `<div class="rounded-2xl border ${a ? 'border-brand bg-brand-tint' : 'border-line'} p-4"><i class="fa-solid ${i} text-brand text-lg"></i><p class="font-bold mt-2">${t}</p></div>`).join('')}
      </div>
-     <button class="btn btn-primary w-full mt-6">Continue <i class="fa-solid fa-arrow-right"></i></button>`,
+     <button class="btn btn-primary w-full mt-6">Continue</button>`,
     `<p class="text-sm font-bold text-muted">Step 2 of 4</p>
      <h4 class="font-head font-extrabold text-2xl mt-1">Create your free account</h4>
      <div class="space-y-3 mt-5">
@@ -620,7 +635,6 @@
             <a href="faq.html" class="result-in tr-help" style="animation-delay:.32s">
               <span class="tr-next-ic tr-help-ic"><i class="fa-regular fa-circle-question"></i></span>
               <span class="flex-1"><b class="block">Questions about your application?</b><span class="text-sm text-muted">Read our FAQs</span></span>
-              <i class="fa-solid fa-arrow-right text-muted"></i>
             </a>
           </div>
         </div>
@@ -646,7 +660,7 @@
       inner.innerHTML = skeleton();
       result.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setTimeout(() => {
-        btn.disabled = false; btn.innerHTML = 'Track Now <i class="fa-solid fa-arrow-right"></i>';
+        btn.disabled = false; btn.innerHTML = 'Track Now';
         const d = DB[key];
         inner.innerHTML = d ? render(key, d) : notFound(q);
         setTimeout(() => {
@@ -1077,7 +1091,7 @@
       const left = TOTAL - n + 1;
       $('#apEta').innerHTML = '<i class="fa-regular fa-clock"></i> About ' + left + ' min left';
       back.classList.toggle('hidden', n === 1);
-      next.innerHTML = n === TOTAL ? 'See my offers <i class="fa-solid fa-magnifying-glass"></i>' : 'Continue <i class="fa-solid fa-arrow-right"></i>';
+      next.innerHTML = n === TOTAL ? 'See my offers <i class="fa-solid fa-magnifying-glass"></i>' : 'Continue';
       if (n === TOTAL) renderReview();
       err.classList.add('hidden');
     };
@@ -1131,7 +1145,7 @@
           '<div class="ap5-o-cell"><small>Monthly EMI</small><b>৳' + money(x.emi) + '</b></div>' +
           '<div class="ap5-o-cell"><small>Max amount</small><b>৳' + money(x.max) + '</b></div>' +
           '<div class="ap5-o-cell ap5-o-fit"><small>Approval</small><span class="el-pill ' + cls + '"><i class="fa-solid ' + ic + '"></i> ' + txt + '</span><span class="ap5-o-bar"><i style="width:' + pct + '%"></i></span></div>' +
-          '<div class="ap5-o-cta"><a href="login.html" data-login-open="register" class="btn ' + (k === 0 ? 'btn-primary' : 'btn-dark') + ' !py-3 !px-6">Apply <i class="fa-solid fa-arrow-right"></i></a><small>Fee ' + x.fee + ' · ' + x.days + '</small></div>' +
+          '<div class="ap5-o-cta"><a href="login.html" data-login-open="register" class="btn ' + (k === 0 ? 'btn-primary' : 'btn-dark') + ' !py-3 !px-6">Apply</a><small>Fee ' + x.fee + ' · ' + x.days + '</small></div>' +
         '</article>';
       }).join('');
       const opener = $('.nav-text-btn[data-login-open]');

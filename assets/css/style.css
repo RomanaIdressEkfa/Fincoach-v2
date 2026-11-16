@@ -3911,3 +3911,143 @@ b, strong, .font-bold:not(i), .font-extrabold:not(i), .font-black:not(i), .font-
 .home #products .lc2 { min-height: 250px; padding: 1.5rem 1.4rem 1.4rem; }
 .home #products .lc2-img { width: 46%; right: -12px; bottom: -12px; }
 .home #products .lc2 > p { max-width: 85%; }
+
+/* Home — How it works, card 2: one bank at a time, same box size as "Loan amount" */
+.hw-rot { position: relative; display: grid; align-items: center; min-height: 63px; overflow: hidden; }
+.hw-rot > .hw-row { grid-area: 1 / 1; opacity: 0; transform: translateY(14px); box-shadow: none; background: none; transition: opacity .45s ease, transform .55s cubic-bezier(.2,.8,.2,1); }
+.hw-rot > .hw-row.is-on { opacity: 1; transform: none; }
+.hw-rot > .hw-row.is-out { opacity: 0; transform: translateY(-14px); }
+.hw-rot .hw-row b { color: var(--brand); }
+.hw-rot .hw-row i { background: var(--tint); color: var(--brand); }
+
+/* Home — How it works cards: white with a thin outline, black text, no icon box */
+.home .hw-step, .home .hw-step:hover { background: #fff; border: 1px solid #e6e9f2; backdrop-filter: none; -webkit-backdrop-filter: none; transform: none; }
+.home .hw-num { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--ink); }
+.home .hw-step h3 { color: var(--ink); }
+.home .hw-step > p { color: #3b4560; }
+.home .hw-ui > * { background: #f5f7fb; border: 1px solid #e9ecf3; box-shadow: none; }
+.hw-rot .hw-row-ok i { background: #dcfce7; color: #16a34a; }
+
+/* Home — Mobile app: circle icons, no shadows on the chip, card and download box */
+.home .ap3-chip > span, .home .ap2-qa { border-radius: 50%; }
+.home .ap3-chip, .home .ap3-dl, .home .ap2-card, .home .ap2-qa { box-shadow: none; }
+.home .ap3-chip { border: 1px solid #eef0f5; }
+
+/* Site-wide — no dot before small labels like "Mobile app" */
+.eyebrow::before { content: none; display: none; }
+
+/* Home — Mobile app: phone centred in the pink circle, loan icons orbit on the dashed ring */
+.home .ap3-visual .ap2-phone { z-index: 2; top: 52%; left: 50%; margin-left: 0; translate: -50% -50%; }
+.ap2-orbit { position: absolute; z-index: 1; left: 50%; top: 52%; width: min(520px, 92vw); aspect-ratio: 1; transform: translate(-50%, -50%); pointer-events: none;
+  --r: calc(min(520px, 92vw) * .46); }
+.ap2-orbit > i { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform: rotate(var(--a)) translateX(var(--r)); animation: apOrbit 40s linear infinite; }
+.ap2-orbit b { display: block; animation: apOrbitUp 40s linear infinite; }
+.ap2-orbit span { position: absolute; left: -23px; top: -23px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  background: #fff; border: 1px solid #f6d5e0; color: var(--brand); font-size: 1rem; }
+.ap2-orbit em { font-style: normal; }
+@keyframes apOrbit { from { transform: rotate(var(--a)) translateX(var(--r)); } to { transform: rotate(calc(var(--a) + 360deg)) translateX(var(--r)); } }
+@keyframes apOrbitUp { from { transform: rotate(calc(var(--a) * -1)); } to { transform: rotate(calc(var(--a) * -1 - 360deg)); } }
+@media (max-width: 639px) { .ap2-orbit span { width: 38px; height: 38px; left: -19px; top: -19px; font-size: .85rem; } }
+@media (prefers-reduced-motion: reduce) { .ap2-orbit > i, .ap2-orbit b { animation: none; } .ap2-orbit b { transform: rotate(calc(var(--a) * -1)); } }
+
+/* Site-wide — buttons: solid colour first, gradient on hover; no glow */
+.btn-primary { background: var(--brand) !important; box-shadow: none !important; }
+.btn-primary:hover { background: var(--grad) !important; box-shadow: none !important; }
+
+/* Home — EMI calculator: no shadows */
+.emi2 { box-shadow: 0 0 0 1px #eef0f4 !important; }
+.emi2-types { box-shadow: none; }
+.emi2-types button.active { background: var(--brand); box-shadow: none; }
+.emi2-box, .emi2-box:focus-within { box-shadow: none; }
+.emi2-ic { box-shadow: none; }
+.emi2-gauge svg { filter: none; }
+input[type=range].emi2-rng::-webkit-slider-thumb,
+input[type=range].emi2-rng:hover::-webkit-slider-thumb,
+input[type=range].emi2-rng:focus-visible::-webkit-slider-thumb { box-shadow: inset 0 0 0 7px #e8205a; }
+input[type=range].emi2-rng::-moz-range-thumb { box-shadow: none; }
+
+/* Stats card — no shadow, just a thin border */
+.st4 { box-shadow: 0 0 0 1px #eceef3 !important; }
+
+/* ==========================================================
+   Site-wide — icons only: no background box behind decorative icons
+   (icon-only buttons such as arrows, back-to-top and the menu keep theirs)
+   ========================================================== */
+:is(.mm-ic, .ic-wrap, .dl-ic, .nt-ic, .emi2-ic, .ol-ic, .tr2-ic, .st4-ic, .lp2-help-ic, .ap2-qa, .lp2-step-ic, .c-icon,
+    .ap5-yn-ic, .ab8-val-ic, .ct5-ic, .ab10-card-ic, .ps3-tip-ic, .hs-chip-ic, .hs-store, .tw4-q, .hw-ic, .ap2-orbit span),
+:is(.mm-ic, .ic-wrap, .dl-ic, .st4-ic, .emi2-ic, .ap2-qa):hover,
+.ap3-chip > span, .hs-eyebrow i, .hw-rot i, .mm-link:hover .mm-ic, .st4-item:hover .st4-ic, .nav-text-btn:hover .nt-ic,
+:where(span, div, a):not(.btn):not(.mn-fab):is(.grid.place-items-center):has(> i:only-child) {
+  background: none !important; box-shadow: none !important; border-color: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+}
+.ec2-hl i, .lg2-switch > i:first-child, .ap5-sn, .ap5-steps li.is-active .ap5-sn, .ap5-steps li.is-done .ap5-sn { background: none !important; box-shadow: none !important; }
+/* icons that were white on a coloured box now take the brand colour */
+.hs-eyebrow i, .hs-chip-ic, .dl-ic, .ct5-ic, .lp2-step-ic, .c-icon, .lg2-switch > i:first-child, .ec2-hl i,
+.ap5-steps li.is-active .ap5-sn, :where(span, div):not(.btn):not(.mn-fab).text-white:is(.grid.place-items-center):has(> i:only-child) { color: var(--brand) !important; }
+.hs-store { color: var(--ink) !important; }
+/* more icon boxes → icon only */
+:is(.ap5-call, .ap5-side-ic, .ct5-act, .ec2-ex-ic, .ec2-tip-ic, .lp2-feat-ic, .lp2-other-ic, .lp3-pill-ic, .ps3-act, .share-ic, .social),
+:is(.ap5-call, .ap5-side-ic, .ct5-act, .lp2-other-ic, .ps3-act, .share-ic, .social):hover,
+.ap5-type > span > i, .ap5-type.is-on > span > i, .ap5-video > span, .ap5-why > span, .ct7-rows > div > i, .dl-help > span, .el2-doc > i, .el2-result > span,
+.fcx-chip-pill > span, .fq2-contact > i, .lg2-glance-g div > span, .of-perks > li > i, .ps2-docs > div > i, .tw4-chip > span, .ft2-list a > span {
+  background: none !important; box-shadow: none !important; border-color: transparent !important;
+}
+.ft2-contact a > span, .ft2-contact a:hover > span { background: none !important; box-shadow: none !important; border-color: transparent !important; }
+.social, .ft2-contact a > span { color: inherit; }
+.lp2-feat-ic { color: var(--brand) !important; }
+a.share-ic.share-ic { background: none !important; color: var(--brand) !important; }
+.home .social, footer .social { color: var(--brand) !important; }
+.ap5-mbar-ic, .ap5-side-ic, .ap5-type > span > i { background: none !important; box-shadow: none !important; color: var(--brand) !important; }
+
+/* Footer — plain navy, no purple corner glow or box shadow */
+.ft2 { background: linear-gradient(170deg, #111d3d 0%, #0b1530 55%, #0a1229 100%) !important; box-shadow: none !important; }
+.ft2-box { box-shadow: none !important; }
+
+/* ==========================================================
+   Footer v3 — Wallex shape: big rounded top corners, flat bottom,
+   link columns, logo + socials, line, copyright row
+   ========================================================== */
+.fw-wrap { padding: 0 10px; margin-top: 2rem; }
+.fw { position: relative; overflow: hidden; color: #fff; background: #0b1530; border-radius: 60px 60px 0 0; }
+.fw::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 220px; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.2px); background-size: 16px 16px;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent); mask-image: linear-gradient(180deg, #000, transparent); }
+.fw-in { position: relative; max-width: 1180px; margin: 0 auto; padding: 5.5rem 1.25rem 2.5rem; }
+.fw-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }
+@media (min-width: 1024px) { .fw-cols { grid-template-columns: 1fr 1fr 1fr 1.3fr; gap: 2rem; } }
+.fw-h { font-family: "Urbanist", sans-serif; font-weight: 600; font-size: 16px; color: #fff; letter-spacing: 0; margin-bottom: 1.1rem; }
+.fw-h-2 { margin-top: 1.9rem; }
+.fw-list { display: grid; gap: .75rem; }
+.fw-list a { display: inline-flex; align-items: center; gap: .6rem; font-size: 15px; color: rgba(255,255,255,.72); transition: color .2s; }
+.fw-list a:hover { color: #fff; }
+.fw-list i { color: #fff; font-size: .9rem; }
+.fw-badges { display: flex; flex-wrap: wrap; gap: .5rem; }
+.fw-badges img { height: 40px; width: auto; display: block; }
+.fw-brand { margin-top: 4.5rem; padding-bottom: 1.6rem; border-bottom: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; }
+.fw-logo img { height: 38px; width: auto; display: block; filter: brightness(0) invert(1); }
+.fw-social { display: flex; align-items: center; gap: 1.6rem; }
+.fw-social a { color: #fff; font-size: 1.05rem; transition: opacity .2s; }
+.fw-social a:hover { opacity: .7; }
+.fw-bottom { padding-top: 1.6rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; font-size: 14px; color: rgba(255,255,255,.72); }
+@media (max-width: 767px) { .fw { border-radius: 32px 32px 0 0; } .fw-in { padding-top: 3.5rem; } .fw-brand { margin-top: 3rem; } .fw-bottom { flex-direction: column; } }
+
+/* "App available on" — real store badges, sized to the line */
+a.store-mini, a.store-mini:hover { width: auto !important; height: auto !important; padding: 0 !important; border: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; transform: none; display: inline-flex; transition: opacity .2s; }
+a.store-mini:hover { opacity: .85; }
+a.store-mini img { display: block; width: auto; height: 36px; }
+.topbar a.store-mini img { height: 24px; }
+
+/* Footer bottom strip — Wallex style */
+.ft2 .ft2-line { height: 1px; background: rgba(255,255,255,.14) !important; }
+.ft2 .social, .ft2 .social:hover { width: auto; height: auto; color: #fff !important; background: none !important; border: 0 !important; box-shadow: none !important; font-size: 1.05rem; transform: none; }
+.ft2 .social:hover { opacity: .7; }
+.ft2-brand > div { gap: 1.6rem !important; }
+.ft2-copy { font-size: 14px; color: rgba(255,255,255,.72); }
+.ft2-app { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.ft2-app p { margin-right: .4rem; }
+.ft2-app a.store-mini img { height: 24px; }
+
+/* Footer — Wallex shape: big rounded top corners, flat bottom to the page edge */
+footer:has(> .ft2) { padding-bottom: 0 !important; }
+.ft2.panel { border-radius: 60px 60px 0 0 !important; }
+@media (max-width: 767px) { .ft2.panel { border-radius: 32px 32px 0 0 !important; } }
