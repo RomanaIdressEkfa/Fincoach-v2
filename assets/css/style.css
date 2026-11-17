@@ -4174,3 +4174,9 @@ section:has(> .panel.bg-grad) > .panel.bg-grad > .absolute.rounded-full { displa
 .tr-cta a.border-2:hover { background: #fff !important; }
 section > .panel.bg-grad.tr-cta { background: #fdeef3 !important; }
 section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdeef3 !important; }
+
+/* Apply — side panel: no shadow, no purple corner glow */
+.ap5-side { box-shadow: none !important; background: linear-gradient(170deg, #142046, #0b1530) !important; }
+
+/* Apply page — no shadow on the form card and info cards */
+.ap5-form, .ap5-card, .ap5-why { box-shadow: none !important; }

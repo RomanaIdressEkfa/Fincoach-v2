@@ -1039,8 +1039,6 @@
       $$('.ap5-check li').forEach(li => li.classList.toggle('is-done', +li.dataset.chk < n));
       $('#apNum').textContent = n;
       $('#apStepName').textContent = STEP_NAMES[n - 1];
-      const left = TOTAL - n + 1;
-      $('#apEta').innerHTML = '<i class="fa-regular fa-clock"></i> About ' + left + ' min left';
       back.classList.toggle('hidden', n === 1);
       next.innerHTML = n === TOTAL ? 'See my offers <i class="fa-solid fa-magnifying-glass"></i>' : 'Continue';
       if (n === TOTAL) renderReview();
