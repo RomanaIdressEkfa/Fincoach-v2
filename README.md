@@ -12,7 +12,7 @@ Built with **HTML5, CSS, JavaScript** and **Tailwind CSS (CDN)**. No build step 
 | About Us | `about.html` | Vision & mission, services, "how we offer", values, video modal |
 | Contact Us | `contact.html` | Contact cards, topic form, office hours, Google Map, fraud notice, FAQ |
 | Track Application | `track.html` | Search by Application ID / mobile, progress stepper, activity timeline |
-| Login / Register | `login.html` | Sliding login/register panel, password strength, OTP (3-minute resend), forgot password |
+| Login / Register | popup on every page | Log in / Create account popup (no separate page) |
 
 ## Run locally
 
@@ -25,7 +25,7 @@ Then open <http://localhost:5500>. Any static server works too (e.g. Laragon/Apa
 ## Project structure
 
 ```
-index.html  about.html  contact.html  track.html  login.html
+index.html  about.html  contact.html  track.html
 assets/
   css/style.css      # brand tokens, components, mobile layer
   js/main.js         # menus, sliders, calculator, tracking & auth UI

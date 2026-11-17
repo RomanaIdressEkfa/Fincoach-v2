@@ -3845,12 +3845,12 @@ input[type=range].emi2-rng::-moz-range-thumb { width: 12px; height: 12px; border
 .home #products .max-w-2xl { max-width: 56rem; }
 
 /* Home — Loans mega menu: no icon boxes, tighter gaps */
-.home .mega > div { padding-top: 1.5rem; padding-bottom: 1.5rem; gap: 2rem; }
-.home .mega > div > div:first-child { gap: 3rem; padding-right: 2.5rem; }
-.home .mega h4 { margin-bottom: .4rem; }
-.home .mega .mm-link { min-width: 0; gap: .6rem; padding: .4rem .6rem; }
-.home .mm-ic, .home .mm-link:hover .mm-ic { width: auto; height: auto; border-radius: 0; background: none; color: var(--brand); }
-.home .mega-app { padding: 1.5rem 1.75rem; }
+.wnav .mega > div { padding-top: 1.5rem; padding-bottom: 1.5rem; gap: 2rem; }
+.wnav .mega > div > div:first-child { gap: 3rem; padding-right: 2.5rem; }
+.wnav .mega h4 { margin-bottom: .4rem; }
+.wnav .mega .mm-link { min-width: 0; gap: .6rem; padding: .4rem .6rem; }
+.wnav .mm-ic, .wnav .mm-link:hover .mm-ic { width: auto; height: auto; border-radius: 0; background: none; color: var(--brand); }
+.wnav .mega-app { padding: 1.5rem 1.75rem; }
 
 /* Site-wide — no little line before section labels */
 .ab5-kicker > span:empty { display: none; }
@@ -4051,3 +4051,126 @@ a.store-mini img { display: block; width: auto; height: 36px; }
 footer:has(> .ft2) { padding-bottom: 0 !important; }
 .ft2.panel { border-radius: 60px 60px 0 0 !important; }
 @media (max-width: 767px) { .ft2.panel { border-radius: 32px 32px 0 0 !important; } }
+
+/* Home — while scrolling, the header strip is plain white (one colour with the nav bar) */
+.home .nav-wrap.scrolled { background: #fff !important; }
+
+
+/* ==========================================================
+   All pages — homepage header: hero colour behind top bar + nav as one
+   rounded shape, nav in a white bar; slimmer white bar
+   ========================================================== */
+.wnav .nav-wrap { margin: 10px 10px 0; border-radius: 32px 32px 0 0; background: #fff6f9; transition: border-radius .3s, box-shadow .3s, background .3s; }
+.wnav .nav-wrap.scrolled { border-radius: 0 0 24px 24px; background: #fff !important; }
+.wnav .topbar { background: transparent; border-bottom: 0; font-size: 14px; }
+.wnav .nav-wrap > nav::after { content: none; }
+.wnav .nav-wrap > nav > div:first-child { height: 60px; background: #fff; border: 1px solid #fff; border-radius: 22px; box-shadow: 0 10px 30px -22px rgba(11,21,48,.25); }
+@media (min-width: 768px) { .wnav .nav-wrap > nav > div:first-child { height: 66px; } }
+@media (max-width: 1439px) { .wnav .nav-wrap > nav > div:first-child { margin-left: 1rem; margin-right: 1rem; } }
+.wnav .nav-pill { background: transparent; border: 0; box-shadow: none; }
+.wnav .nav-link, .wnav .nav-text-btn { font-family: "Figtree", sans-serif; font-weight: 500; font-size: 15px; }
+.wnav .nav-link.active, .wnav .has-mega.open .nav-link { background: transparent; box-shadow: none; }
+/* the page hero continues the same shape under the header */
+.wnav main > section:first-of-type { padding-top: 0 !important; }
+.wnav main > section:first-of-type > div:first-child { border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; }
+.wnav:has(.ab10-hero) .nav-wrap:not(.scrolled) { background: #fdf3f7; }
+/* loan page has a dark hero: keep the header as its own rounded pink strip */
+.wnav:has(.ab9-hero) .nav-wrap:not(.scrolled) { border-radius: 32px; }
+.wnav:has(.ab9-hero) main > section:first-of-type { padding-top: 10px !important; }
+.wnav:has(.ab9-hero) main > section:first-of-type > div:first-child { border-top-left-radius: 32px !important; border-top-right-radius: 32px !important; }
+.wnav .nav-wrap .btn { font-family: "Figtree", sans-serif; font-weight: 600; font-size: 16px; }
+
+/* ==========================================================
+   About / Contact hero — Wallex proportions: narrower content, 380px photo,
+   compact Vision/Mission cards, dots only in one band at the bottom
+   ========================================================== */
+.ab10-hero > div.relative { max-width: 1120px; }
+.ab10-h1 { font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1.18; }
+.ab10-lead { font-size: 1rem; line-height: 1.6; }
+@media (min-width: 1024px) {
+  .ab10-photo { min-height: 0; height: 380px; }
+  .ab10-card-in { min-height: 0; height: 172px; }
+}
+.ab10-card { box-shadow: none; }
+.ab10-card-in { min-height: 172px; }
+.ab10-card h2 { font-size: 1.4rem; }
+.ab10-card p { font-size: .9rem; line-height: 1.5; }
+.ab10-move { left: 1.4rem; right: 1.4rem; bottom: 1.3rem; --drop: 3.6rem; }
+.ab10-move .ab10-card-ic { width: auto; height: auto; margin-bottom: 1.6rem; font-size: 1.7rem; border: 0; justify-content: start; }
+.ab10-card-vision .ab10-card-ic, .ab10-card-mission .ab10-card-ic { color: #fff !important; }
+/* dots: one band under the photo and cards, fading out at the sides and top */
+.ab10-dots { inset: auto 0 0 0; height: 260px;
+  background-image: radial-gradient(rgba(232,32,90,.22) 1px, transparent 1.3px); background-size: 18px 18px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 18%, #000 32%, #000 68%, transparent 82%), linear-gradient(180deg, transparent, #000 45%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 18%, #000 32%, #000 68%, transparent 82%), linear-gradient(180deg, transparent, #000 45%);
+  mask-composite: intersect; }
+.ab10-move .ab10-card-ic { margin-bottom: 3.6rem; }
+
+/* Contact hero — one full-width photo, as on the Wallex contact page */
+@media (min-width: 1024px) { .ab10-photo.ct8-photo { height: 360px; } }
+.ct8-photo img { object-position: center 18%; }
+@media (max-width: 1023px) { .ab10-photo.ct8-photo { min-height: 0; height: 260px; } }
+
+/* Footer — no pink dash before the column headings */
+.ft2-h::before { content: none !important; display: none !important; }
+
+/* Loans menu — a little more breathing room */
+.wnav .mega > div { padding-top: 2rem; padding-bottom: 2rem; }
+.wnav .mega h4 { margin-bottom: .75rem; }
+.wnav .mega .mm-link { gap: .7rem; padding: .55rem .6rem; }
+.wnav .mega > div > div:first-child { gap: 3.5rem; }
+
+/* All pages — hero top colour = header colour (no pink corner glow at the seam) */
+.wnav main > section:first-of-type > div:first-child:not(.ab9-hero):not(.ab10-hero):not(.hs) { background: linear-gradient(180deg, #fff6f9 0%, #fdeef3 100%) !important; }
+
+/* ==========================================================
+   All page heroes — one dot pattern (same as About / Contact):
+   a band at the bottom, centred, fading out at the sides and top
+   ========================================================== */
+.ab5-dots, .hs-dots, .ab10-dots {
+  position: absolute !important; inset: auto 0 0 0 !important; width: auto !important; height: 260px !important; z-index: -1; pointer-events: none;
+  background-image: radial-gradient(rgba(232,32,90,.22) 1px, transparent 1.3px) !important; background-size: 18px 18px !important;
+  -webkit-mask-image: linear-gradient(90deg, transparent 18%, #000 32%, #000 68%, transparent 82%), linear-gradient(180deg, transparent, #000 45%) !important;
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 18%, #000 32%, #000 68%, transparent 82%), linear-gradient(180deg, transparent, #000 45%) !important;
+  mask-composite: intersect; }
+.wnav .hs-dots { z-index: 0; }
+
+/* ==========================================================
+   Track Application page — approved changes
+   ========================================================== */
+.search-card { box-shadow: 0 0 0 1px #eceef3 !important; }
+.c-card { box-shadow: none !important; }
+.c-card::after { content: none !important; }
+.tr2-ic { background: none !important; box-shadow: none !important; width: auto; height: auto; justify-content: start; color: #ff7aa3; font-size: 1.3rem; }
+section:has(> .panel.bg-grad) > .panel.bg-grad { background: var(--brand) !important; }
+section:has(> .panel.bg-grad) > .panel.bg-grad > .absolute.rounded-full { display: none; }
+
+/* Track — status guide: flat colours (solid cards, plain line, no grid) */
+.tr2-step { background: #16224a !important; border-color: #233160 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+.tr2-step:hover { border-color: #2c3b70 !important; }
+.tr2-steps::before { background: #2c3b70 !important; }
+.tr2-step > b { color: #3a4877; }
+.tr2-ic { color: var(--brand) !important; }
+
+/* Track result — Activity without dates (icon rail + text only) */
+.tr-ev.tr-ev-nodate { grid-template-columns: 40px 1fr; }
+@media (max-width: 639px) { .tr-ev.tr-ev-nodate { grid-template-columns: 34px 1fr; } .tr-ev.tr-ev-nodate .tr-rail { grid-row: auto; } }
+
+/* Track — status cards white with a thin outline, like the homepage How it works cards */
+.tr2-step, .tr2-step:hover { background: #fff !important; border: 1px solid #e6e9f2 !important; color: var(--ink); transform: none; }
+.tr2-step h3 { color: var(--ink); margin-top: 1rem; }
+.tr2-step p { color: #3b4560 !important; }
+.tr2-ic { color: var(--brand) !important; }
+
+/* Track — softer colours: status guide on a light panel, CTA banner light pink */
+.tr-cta.panel { background: #fdeef3 !important; }
+.tr-cta > div.relative { color: var(--ink) !important; }
+.tr-cta p { color: #3b4560 !important; }
+.tr-cta .btn-white { background: var(--brand); color: #fff; }
+.tr-cta .btn-white:hover { background: var(--grad); }
+.tr-cta a.border-2 { color: var(--ink) !important; border-color: #e8b9c9 !important; }
+.tr-cta a.border-2:hover { background: #fff !important; }
+section > .panel.bg-grad.tr-cta { background: #fdeef3 !important; }
+section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdeef3 !important; }

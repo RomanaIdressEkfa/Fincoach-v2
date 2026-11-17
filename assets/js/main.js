@@ -444,17 +444,17 @@
   const trackForm = $('#trackForm');
   if (trackForm) {
     const input = $('#trackInput'), err = $('#trackErr'), icon = $('#trackIcon');
-    const seg = $('#trackSeg'), segPill = $('.seg-pill', seg), segBtns = $$('button', seg);
+    const seg = $('#trackSeg'), segPill = seg && $('.seg-pill', seg), segBtns = seg ? $$('button', seg) : [];
     const result = $('#trackResult'), inner = $('#trackResultInner');
     let mode = 'id';
 
-    const moveSegPill = (btn) => { segPill.style.left = btn.offsetLeft + 'px'; segPill.style.width = btn.offsetWidth + 'px'; };
+    const moveSegPill = (btn) => { if (!segPill || !btn) return; segPill.style.left = btn.offsetLeft + 'px'; segPill.style.width = btn.offsetWidth + 'px'; };
     const setMode = (m) => {
       mode = m;
       segBtns.forEach(b => b.classList.toggle('active', b.dataset.mode === m));
       moveSegPill(segBtns.find(b => b.dataset.mode === m));
       input.value = '';
-      input.placeholder = m === 'id' ? 'e.g. FC-2026-08814' : 'e.g. 01712-345678';
+      input.placeholder = m === 'id' ? 'Application ID' : 'Mobile Number';
       input.setAttribute('aria-label', m === 'id' ? 'Application ID' : 'Mobile number');
       input.inputMode = m === 'id' ? 'text' : 'numeric';
       icon.className = (m === 'id' ? 'fa-solid fa-magnifying-glass' : 'fa-solid fa-mobile-screen') + ' absolute left-5 top-1/2 -translate-y-1/2 text-[#9aa3b5] text-lg';
@@ -473,7 +473,7 @@
       'FC-2026-08814': {
         name: 'Rafiq Ahmed', product: 'Personal Loan', icon: 'fa-user', bank: 'IPDC Finance PLC.', logo: 'assets/img/partners/p1.png',
         amount: '৳ 6,50,000', tenure: '36 months', rate: '9.0% p.a.', applied: '02 Nov 2026', current: 2,
-        dates: ['02 Nov, 10:24 AM', '03 Nov, 02:10 PM', 'In progress', 'Expected 10 Nov', '—'],
+        dates: ['02 Nov, 10:24 AM', '03 Nov, 02:10 PM', 'In progress', '—', '—'],
         activity: [
           ['fa-building-columns', 'Application forwarded to IPDC Finance', 'Credit team is assessing your eligibility.', '05 Nov 2026 · 11:40 AM', true],
           ['fa-file-circle-check', 'Documents verified', 'NID, salary certificate and bank statement verified.', '03 Nov 2026 · 02:10 PM'],
@@ -519,7 +519,7 @@
         <p class="text-muted mt-2 max-w-md mx-auto">We couldn't find an application for <b class="text-ink">${q}</b>. Please double-check the ID or try your registered mobile number.</p>
         <div class="flex flex-wrap justify-center gap-3 mt-7">
           <a href="contact.html" class="btn btn-dark"><i class="fa-solid fa-headset"></i> Contact support</a>
-          <a href="login.html" class="btn btn-ghost">Log in to dashboard</a>
+          <a href="#" class="btn btn-ghost" data-login-open>Log in to dashboard</a>
         </div>
       </div>`;
 
@@ -528,16 +528,6 @@
       const pct = done ? 100 : Math.round((d.current / 4) * 100);
       const stepNo = done ? 5 : d.current + 1;
       const statusTxt = done ? 'Disbursed' : STEPS[d.current][1];
-      const NEXT = [
-        ['Verifying your details', "We're checking your details and documents. This usually takes less than a day."],
-        ['Preparing for the lender', 'Your verified application is being prepared and sent to ' + d.bank + '.'],
-        [d.bank + ' is reviewing', 'The credit team is assessing your eligibility. Most decisions arrive within 3–7 working days.'],
-        ['Sign your offer', 'Your loan is approved — review and sign the offer letter to receive your funds.'],
-        ['Funds on the way', 'Your loan is being disbursed to your account.']
-      ];
-      const nx = done ? ['All done!', 'Your loan has been disbursed. Repayments start next month — you can track them in your dashboard.'] : NEXT[d.current];
-      const eta = done ? 'Completed ' + d.dates[4] : d.dates[Math.min(d.current + 1, 4)];
-      const docsDone = d.docs.filter(x => x[1]).length;
       const C = (2 * Math.PI * 52).toFixed(1);
       const stat = (ic, k, v) => `<div class="tr-stat"><i class="fa-solid ${ic}"></i><span><small>${k}</small><b>${v}</b></span></div>`;
       const steps = STEPS.map(([ic, t], i) => {
@@ -545,9 +535,7 @@
         return `<div class="tr-step ${st}"><span class="tr-node"><i class="fa-solid ${st === 'done' ? 'fa-check' : ic}"></i></span><p>${t}</p><small>${d.dates[i]}</small></div>`;
       }).join('');
       const events = d.activity.map(([ic, t, s, when, latest]) => {
-        const [date, time] = when.split(' · ');
-        return `<div class="tr-ev ${latest ? 'is-latest' : ''}">
-          <div class="tr-when"><b>${date.replace(/ \d{4}$/, '')}</b><span>${time || ''}</span></div>
+        return `<div class="tr-ev tr-ev-nodate ${latest ? 'is-latest' : ''}">
           <div class="tr-rail"><span class="tr-dot"><i class="fa-solid ${ic}"></i></span></div>
           <div class="tr-box"><p class="font-bold">${t}${latest ? ' <span class="tr-new">Latest</span>' : ''}</p><p class="text-muted text-[15px] mt-0.5">${s}</p></div>
         </div>`;
@@ -590,53 +578,12 @@
           </div>
         </div>
 
-        <div class="result-in tr-next" style="animation-delay:.08s">
-          <span class="tr-next-ic"><i class="fa-solid ${done ? 'fa-champagne-glasses' : 'fa-wand-magic-sparkles'}"></i></span>
-          <div class="flex-1 min-w-0">
-            <p class="text-xs font-bold uppercase tracking-wider text-brand">What happens next</p>
-            <p class="font-head font-extrabold text-lg mt-0.5">${nx[0]}</p>
-            <p class="text-muted text-[15px]">${nx[1]}</p>
+        <div class="result-in tr-card" style="animation-delay:.14s">
+          <div class="flex items-center justify-between">
+            <h3 class="font-head font-extrabold text-2xl">Activity</h3>
+            <span class="tr-count">${d.activity.length} updates</span>
           </div>
-          <span class="tr-eta"><i class="fa-regular fa-clock"></i> ${eta}</span>
-        </div>
-
-        <div class="grid lg:grid-cols-12 gap-6">
-          <div class="lg:col-span-8 result-in tr-card lg:self-start" style="animation-delay:.14s">
-            <div class="flex items-center justify-between">
-              <h3 class="font-head font-extrabold text-2xl">Activity</h3>
-              <span class="tr-count">${d.activity.length} updates</span>
-            </div>
-            <div class="tr-tl mt-7">${events}</div>
-          </div>
-
-          <div class="lg:col-span-4 space-y-6">
-            <div class="result-in tr-card" style="animation-delay:.2s">
-              <p class="text-xs font-bold uppercase tracking-wider text-muted">Your advisor</p>
-              <div class="flex items-center gap-3 mt-4">
-                <span class="tr-ava">SA<i></i></span>
-                <div><p class="font-head font-extrabold text-lg leading-tight">Sadia Akter</p><p class="text-sm text-muted">Relationship Officer · Online</p></div>
-              </div>
-              <div class="grid grid-cols-3 gap-2 mt-5">
-                <a href="tel:+8809638229922" class="tr-act tr-act-main"><i class="fa-solid fa-phone"></i>Call</a>
-                <a href="mailto:info@fincoachbd.com" class="tr-act"><i class="fa-regular fa-envelope"></i>Email</a>
-                <a href="https://wa.me/8809638229922" target="_blank" rel="noopener" class="tr-act"><i class="fa-brands fa-whatsapp"></i>Chat</a>
-              </div>
-            </div>
-
-            <div class="result-in tr-card" style="animation-delay:.26s">
-              <div class="flex items-center justify-between">
-                <h3 class="font-head font-extrabold text-lg">Documents</h3>
-                <span class="text-sm font-bold ${docsDone === d.docs.length ? 'text-green-600' : 'text-ink'}">${docsDone} of ${d.docs.length} uploaded</span>
-              </div>
-              <div class="tr-bar mt-3"><span style="width:${(docsDone / d.docs.length) * 100}%"></span></div>
-              <div class="space-y-2.5 mt-5">${docs}</div>
-            </div>
-
-            <a href="faq.html" class="result-in tr-help" style="animation-delay:.32s">
-              <span class="tr-next-ic tr-help-ic"><i class="fa-regular fa-circle-question"></i></span>
-              <span class="flex-1"><b class="block">Questions about your application?</b><span class="text-sm text-muted">Read our FAQs</span></span>
-            </a>
-          </div>
+          <div class="tr-tl mt-7">${events}</div>
         </div>
       </div>`;
     };
@@ -856,15 +803,13 @@
   /* ---------- Login / Register popup (all pages) ---------- */
   const lm = $('#loginModal');
   if (lm) {
-    const tabsEl = $('#lmTabs'), title = $('#lmTitle'), sub = $('#lmSub');
+    const tabsEl = $('#lmTabs');
     let lastFocus = null;
     const showPane = (name) => {
       $$('.lm-pane', lm).forEach(p => p.classList.toggle('active', p.id === 'lm' + name[0].toUpperCase() + name.slice(1)));
       tabsEl.classList.toggle('hidden', name === 'done');
       tabsEl.classList.toggle('reg', name === 'register');
       $$('button', tabsEl).forEach(b => b.classList.toggle('active', b.dataset.lmTab === name));
-      if (name === 'login') { title.textContent = 'Log in to your account'; sub.textContent = 'Track applications and manage your offers.'; }
-      if (name === 'register') { title.textContent = 'Create your free account'; sub.textContent = 'Compare, apply and track — in under a minute.'; }
       $$('.lm-err', lm).forEach(e => e.classList.add('hidden'));
     };
     const openLm = (tab = 'login') => {
@@ -880,7 +825,13 @@
       document.body.classList.remove('lm-lock');
       if (lastFocus) lastFocus.focus();
     };
-    $$('[data-login-open]').forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); openLm(b.dataset.loginOpen === 'register' ? 'register' : 'login'); }));
+    // Delegated so links added later (track result, apply offers) open the popup too
+    document.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-login-open]');
+      if (!b) return;
+      e.preventDefault();
+      openLm(b.dataset.loginOpen === 'register' ? 'register' : 'login');
+    });
     $$('[data-lm-close]', lm).forEach(b => b.addEventListener('click', closeLm));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lm.classList.contains('open')) closeLm(); });
     $$('button', tabsEl).forEach(b => b.addEventListener('click', () => showPane(b.dataset.lmTab)));
@@ -900,7 +851,7 @@
       setTimeout(() => {
         btn.disabled = false; btn.innerHTML = label; form.reset();
         $('#lmDoneTitle').textContent = doneTitle; $('#lmDoneSub').textContent = doneSub;
-        title.textContent = ''; sub.textContent = '';
+
         showPane('done');
       }, 900);
     });
@@ -1145,11 +1096,9 @@
           '<div class="ap5-o-cell"><small>Monthly EMI</small><b>৳' + money(x.emi) + '</b></div>' +
           '<div class="ap5-o-cell"><small>Max amount</small><b>৳' + money(x.max) + '</b></div>' +
           '<div class="ap5-o-cell ap5-o-fit"><small>Approval</small><span class="el-pill ' + cls + '"><i class="fa-solid ' + ic + '"></i> ' + txt + '</span><span class="ap5-o-bar"><i style="width:' + pct + '%"></i></span></div>' +
-          '<div class="ap5-o-cta"><a href="login.html" data-login-open="register" class="btn ' + (k === 0 ? 'btn-primary' : 'btn-dark') + ' !py-3 !px-6">Apply</a><small>Fee ' + x.fee + ' · ' + x.days + '</small></div>' +
+          '<div class="ap5-o-cta"><a href="#" data-login-open="register" class="btn ' + (k === 0 ? 'btn-primary' : 'btn-dark') + ' !py-3 !px-6">Apply</a><small>Fee ' + x.fee + ' · ' + x.days + '</small></div>' +
         '</article>';
       }).join('');
-      const opener = $('.nav-text-btn[data-login-open]');
-      $$('#resRows [data-login-open]').forEach(b => b.addEventListener('click', (e) => { if (opener) { e.preventDefault(); opener.click(); } }));
       $$('.ap5-check li').forEach(li => li.classList.add('is-done'));
       const sec = $('#results');
       sec.classList.remove('hidden');

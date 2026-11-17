@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="font-body">
+<body class="font-body wnav">
 
 <!-- =========================================================
      HEADER — announcement bar + navbar (LoanTube layout)
@@ -76,9 +76,9 @@
 
       <!-- Right -->
       <div class="hidden lg:flex items-center gap-2.5">
-        <a href="login.html" class="nav-text-btn" data-login-open><span class="nt-ic"><i class="fa-regular fa-user"></i></span> Log in</a>
+        <a href="#" class="nav-text-btn" data-login-open>Log in</a>
         <a href="apply.html" class="btn btn-dark btn-apply !py-3 !px-6">Apply Now</a>
-        <a href="track.html" class="btn btn-track !py-3"><i class="fa-solid fa-location-crosshairs"></i> <span>Track<span class="hidden xl:inline">&nbsp;Application</span></span></a>
+        <a href="track.html" class="btn btn-track !py-3"><span>Track<span class="hidden xl:inline">&nbsp;Application</span></span></a>
       </div>
 
       <!-- Mobile actions -->
@@ -113,7 +113,7 @@
           <div class="rounded-[24px] bg-brand-tint p-6 relative overflow-hidden h-full mega-app">
             <div class="absolute -right-10 -top-10 w-44 h-44 rounded-full bg-grad opacity-10"></div>
             <img src="assets/img/fincoach-logo.png" alt="FinCoach" class="h-8 relative" />
-            <p class="mt-3 font-semibold leading-relaxed text-ink max-w-xs relative">Apply for your loan and track every step from your phone.</p>
+            <p class="mt-3 font-semibold leading-relaxed text-ink max-w-xs relative">App to apply and manage your loan</p>
             <div class="mega-badges relative">
               <a href="#" aria-label="Get it on Google Play"><img src="assets/img/badge-google-play.svg" alt="Get it on Google Play" /></a>
               <a href="#" aria-label="Download on the App Store"><img src="assets/img/badge-app-store.svg" alt="Download on the App Store" /></a>
@@ -161,7 +161,7 @@
   <div class="p-5 grid gap-3 border-t border-line">
     <a href="apply.html" class="btn btn-primary">Apply Now</a>
     <div class="grid grid-cols-2 gap-3">
-      <a href="login.html" class="btn btn-ghost" data-login-open><i class="fa-regular fa-user"></i> Login</a>
+      <a href="#" class="btn btn-ghost" data-login-open><i class="fa-regular fa-user"></i> Login</a>
       <a href="track.html" class="btn btn-ghost"><i class="fa-solid fa-location-crosshairs text-brand"></i> Track</a>
     </div>
   </div>
@@ -460,14 +460,12 @@
 
 
 <!-- Login / Register popup -->
-<div id="loginModal" class="lm" role="dialog" aria-modal="true" aria-labelledby="lmTitle" aria-hidden="true">
+<div id="loginModal" class="lm" role="dialog" aria-modal="true" aria-label="Log in or create an account" aria-hidden="true">
   <div class="lm-backdrop" data-lm-close></div>
   <div class="lm-box">
     <button type="button" class="lm-close" data-lm-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
     <div class="text-center">
-      <img src="assets/img/fincoach-logo.png" alt="FinCoach" class="h-8 mx-auto" />
-      <h2 id="lmTitle" class="mt-5 font-head font-extrabold text-[1.7rem] leading-tight">Log in to your account</h2>
-      <p class="mt-1.5 text-muted" id="lmSub">Track applications and manage your offers.</p>
+      <img src="assets/img/fincoach-logo.png" alt="FinCoach" class="h-9 mx-auto" />
     </div>
     <div class="auth-tabs mt-6" id="lmTabs">
       <span class="tab-pill"></span>
@@ -482,12 +480,10 @@
       </div>
       <div class="flex items-center justify-between mt-4 text-[15px]">
         <label class="flex items-center gap-2 text-muted font-semibold cursor-pointer"><input type="checkbox" class="w-4 h-4 accent-[#e8205a]" checked /> Remember me</label>
-        <a href="login.html" class="font-bold text-brand hover:underline">Forgot password?</a>
+        <a href="contact.html" class="font-bold text-brand hover:underline">Forgot password?</a>
       </div>
       <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please fill in all fields.</p>
       <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Log in</button>
-      <div class="divider my-5">or</div>
-      <a href="login.html" class="social-btn w-full"><i class="fa-solid fa-mobile-screen-button text-brand"></i> Log in with OTP</a>
     </form>
 
     <form class="lm-pane mt-6" id="lmRegister" novalidate>
@@ -510,7 +506,6 @@
         <a href="track.html" class="btn btn-ghost">Track</a>
       </div>
     </div>
-    <p class="mt-6 text-center text-xs text-muted"><i class="fa-solid fa-lock text-brand"></i> Secured with 256-bit encryption</p>
   </div>
 </div>
 
@@ -519,7 +514,7 @@
   <a href="apply.html" data-nav="apply"><i class="fa-solid fa-hand-holding-dollar"></i><span>Apply</span></a>
   <a href="track.html" data-nav="track" class="mn-main"><span class="mn-fab"><i class="fa-solid fa-location-crosshairs"></i></span><span>Track</span></a>
   <a href="contact.html" data-nav="contact"><i class="fa-solid fa-headset"></i><span>Contact</span></a>
-  <a href="login.html" data-nav="login" data-login-open><i class="fa-regular fa-user"></i><span>Account</span></a>
+  <a href="#" data-nav="login" data-login-open><i class="fa-regular fa-user"></i><span>Account</span></a>
 </nav>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="assets/js/pages.js"></script>

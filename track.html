@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="font-body">
+<body class="font-body wnav">
 
 <!-- =========================================================
      HEADER — announcement bar + navbar (LoanTube layout)
@@ -76,9 +76,9 @@
 
       <!-- Right -->
       <div class="hidden lg:flex items-center gap-2.5">
-        <a href="login.html" class="nav-text-btn" data-login-open><span class="nt-ic"><i class="fa-regular fa-user"></i></span> Log in</a>
+        <a href="#" class="nav-text-btn" data-login-open>Log in</a>
         <a href="apply.html" class="btn btn-dark btn-apply !py-3 !px-6">Apply Now</a>
-        <a href="track.html" class="btn btn-track !py-3"><i class="fa-solid fa-location-crosshairs"></i> <span>Track<span class="hidden xl:inline">&nbsp;Application</span></span></a>
+        <a href="track.html" class="btn btn-track !py-3"><span>Track<span class="hidden xl:inline">&nbsp;Application</span></span></a>
       </div>
 
       <!-- Mobile actions -->
@@ -113,7 +113,7 @@
           <div class="rounded-[24px] bg-brand-tint p-6 relative overflow-hidden h-full mega-app">
             <div class="absolute -right-10 -top-10 w-44 h-44 rounded-full bg-grad opacity-10"></div>
             <img src="assets/img/fincoach-logo.png" alt="FinCoach" class="h-8 relative" />
-            <p class="mt-3 font-semibold leading-relaxed text-ink max-w-xs relative">Apply for your loan and track every step from your phone.</p>
+            <p class="mt-3 font-semibold leading-relaxed text-ink max-w-xs relative">App to apply and manage your loan</p>
             <div class="mega-badges relative">
               <a href="#" aria-label="Get it on Google Play"><img src="assets/img/badge-google-play.svg" alt="Get it on Google Play" /></a>
               <a href="#" aria-label="Download on the App Store"><img src="assets/img/badge-app-store.svg" alt="Download on the App Store" /></a>
@@ -161,7 +161,7 @@
   <div class="p-5 grid gap-3 border-t border-line">
     <a href="apply.html" class="btn btn-primary">Apply Now</a>
     <div class="grid grid-cols-2 gap-3">
-      <a href="login.html" class="btn btn-ghost" data-login-open><i class="fa-regular fa-user"></i> Login</a>
+      <a href="#" class="btn btn-ghost" data-login-open><i class="fa-regular fa-user"></i> Login</a>
       <a href="track.html" class="btn btn-ghost"><i class="fa-solid fa-location-crosshairs text-brand"></i> Track</a>
     </div>
   </div>
@@ -176,13 +176,7 @@
   <div class="ab5-hero ct5-hero">
     <span class="ab5-dots"></span><span class="ab5-glow"></span>
     <div class="relative max-w-site mx-auto px-4 md:px-6 pt-12 md:pt-16 pb-52 md:pb-56 text-center">
-      <nav class="crumb justify-center" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span class="text-brand">Track Application</span></nav>
-      <div class="mt-6"><span class="ab5-kicker justify-center"><span></span>Application tracker<span></span></span></div>
-      <h1 class="ab5-h1 mt-4 max-w-3xl mx-auto">Track your <span class="text-grad">application</span></h1>
-      <p class="ab5-lead mt-4 max-w-2xl mx-auto">Follow every step of your application in real time.</p>
-      <div class="mt-6 inline-flex items-center gap-3 bg-white rounded-full pl-3 pr-5 py-2 shadow-sm border border-[#f4e2e9]">
-        <span class="live-dot"></span><span class="font-semibold text-ink-2 text-sm">Live status from partner Banks &amp; FIs</span>
-      </div>
+      <h1 class="ab5-h1 max-w-3xl mx-auto">Track your application</h1>
     </div>
   </div>
 </section>
@@ -190,25 +184,19 @@
 <!-- =========================================================
      SEARCH CARD (overlapping hero)
      ========================================================= -->
-<section class="relative z-10 -mt-40 md:-mt-44 pb-16">
+<section class="relative z-10 -mt-40 md:-mt-44 pb-10 md:pb-12">
   <div class="max-w-4xl mx-auto px-4 md:px-6">
     <form id="trackForm" class="reveal search-card p-5 sm:p-6 md:p-10" novalidate>
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h2 class="font-head font-extrabold text-2xl md:text-3xl">Find your application</h2>
-          <p class="text-muted mt-1">Search by Application ID or registered mobile number.</p>
-        </div>
-        <div class="seg self-stretch sm:self-start" id="trackSeg">
-          <span class="seg-pill"></span>
-          <button type="button" class="active" data-mode="id"><i class="fa-solid fa-hashtag mr-1.5 text-xs"></i>Application ID</button>
-          <button type="button" data-mode="phone"><i class="fa-solid fa-mobile-screen mr-1.5 text-xs"></i>Mobile</button>
         </div>
       </div>
 
       <div class="grid md:grid-cols-[1fr_auto] gap-3 mt-7">
         <div class="relative">
           <i id="trackIcon" class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-[#9aa3b5] text-lg"></i>
-          <input id="trackInput" class="big-input" placeholder="e.g. FC-2026-08814" autocomplete="off" aria-label="Application ID" />
+          <input id="trackInput" class="big-input" placeholder="Application ID" autocomplete="off" aria-label="Application ID" />
         </div>
         <button type="submit" class="btn btn-primary h-16 !px-9 text-lg" id="trackBtn">Track Now</button>
       </div>
@@ -234,7 +222,7 @@
 <!-- =========================================================
      WHERE TO FIND YOUR ID
      ========================================================= -->
-<section class="pb-16 md:pb-24">
+<section class="pb-10 md:pb-12">
   <div class="max-w-site mx-auto px-4 md:px-6">
     <div class="text-center max-w-3xl mx-auto">
       <span class="reveal ab5-kicker justify-center"><span></span>Need your ID?<span></span></span>
@@ -257,7 +245,7 @@
         <div class="c-icon"><i class="fa-solid fa-gauge-high"></i></div>
         <h3 class="mt-6 font-head font-extrabold text-xl">Your dashboard</h3>
         <p class="mt-2 text-muted">Log in to see every application, its ID and live status in one place.</p>
-        <a href="login.html" class="btn btn-dark mt-5 w-full">Log in to dashboard</a>
+        <a href="#" class="btn btn-dark mt-5 w-full" data-login-open>Log in to dashboard</a>
       </div>
     </div>
   </div>
@@ -266,23 +254,22 @@
 <!-- =========================================================
      STATUS GUIDE
      ========================================================= -->
-<section class="px-2.5 pb-16 md:pb-24">
+<section class="px-2.5 pb-2.5">
   <div class="ab5-pledge">
     <span class="ab5-pledge-glow"></span>
-    <div class="relative max-w-site mx-auto px-4 md:px-6 py-16 md:py-24">
+    <div class="relative max-w-site mx-auto px-4 md:px-6 py-10 md:py-14">
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
         <div class="max-w-2xl">
           <span class="reveal ab5-kicker !text-[#ff9ec0]"><span></span>Status guide</span>
           <h2 class="reveal ab5-h2 !text-white mt-4">What each status means</h2>
-          <p class="reveal text-white/70 mt-4 text-lg leading-relaxed">Most applications move from submission to decision within 3–7 working days, depending on the product and partner bank.</p>
         </div>
         <a href="contact.html" class="reveal btn btn-primary self-start lg:self-auto shrink-0">Questions? Contact us</a>
       </div>
       <div class="tr2-steps mt-12">
-        <div class="reveal tr2-step"><div class="tr2-top"><span class="tr2-ic"><i class="fa-solid fa-paper-plane"></i></span><em>Day 0</em></div><b>01</b><h3>Submitted</h3><p>We've received your application and documents. Your ID is sent by SMS &amp; email.</p></div>
-        <div class="reveal tr2-step"><div class="tr2-top"><span class="tr2-ic"><i class="fa-solid fa-file-circle-check"></i></span><em>Day 1</em></div><b>02</b><h3>Verified</h3><p>Our team checks your details and documents, and your advisor may call you.</p></div>
-        <div class="reveal tr2-step"><div class="tr2-top"><span class="tr2-ic"><i class="fa-solid fa-building-columns"></i></span><em>Day 2–5</em></div><b>03</b><h3>Bank review</h3><p>The partner bank assesses your eligibility and may request more information.</p></div>
-        <div class="reveal tr2-step"><div class="tr2-top"><span class="tr2-ic"><i class="fa-solid fa-sack-dollar"></i></span><em>Day 3–7</em></div><b>04</b><h3>Approved &amp; disbursed</h3><p>Your facility is approved and the funds are released to your account.</p></div>
+        <div class="reveal tr2-step"><div class="tr2-top"><span class="tr2-ic"><i class="fa-solid fa-paper-plane"></i></span></div><h3>Submitted</h3><p>We've received your application and documents. Your ID is sent by SMS &amp; email.</p></div>
+        <div class="reveal tr2-step"><div class="tr2-top"><span class="tr2-ic"><i class="fa-solid fa-file-circle-check"></i></span></div><h3>Verified</h3><p>Our team checks your details and documents, and your advisor may call you.</p></div>
+        <div class="reveal tr2-step"><div class="tr2-top"><span class="tr2-ic"><i class="fa-solid fa-building-columns"></i></span></div><h3>Bank review</h3><p>The partner bank assesses your eligibility and may request more information.</p></div>
+        <div class="reveal tr2-step"><div class="tr2-top"><span class="tr2-ic"><i class="fa-solid fa-sack-dollar"></i></span></div><h3>Approved &amp; disbursed</h3><p>Your facility is approved and the funds are released to your account.</p></div>
       </div>
     </div>
   </div>
@@ -292,7 +279,7 @@
      CTA
      ========================================================= -->
 <section class="px-2.5 pb-2.5">
-  <div class="panel bg-grad relative overflow-hidden">
+  <div class="panel bg-grad tr-cta relative overflow-hidden">
     <div class="absolute -left-24 -bottom-24 w-96 h-96 rounded-full border-[40px] border-white/10"></div>
     <div class="absolute right-10 -top-20 w-72 h-72 rounded-full bg-white/10"></div>
     <div class="relative max-w-site mx-auto px-4 md:px-6 py-16 md:py-20 flex flex-col lg:flex-row lg:items-center justify-between gap-8 text-white">
@@ -302,7 +289,7 @@
       </div>
       <div class="reveal flex flex-wrap gap-3">
         <a href="index.html#products" class="btn btn-white">Compare &amp; Apply</a>
-        <a href="login.html#register" class="btn border-2 border-white/40 text-white px-6 py-3.5 hover:bg-white/10">Create free account</a>
+        <a href="#" data-login-open="register" class="btn border-2 border-white/40 text-white px-6 py-3.5 hover:bg-white/10">Create free account</a>
       </div>
     </div>
   </div>
@@ -390,14 +377,12 @@
 
 
 <!-- Login / Register popup -->
-<div id="loginModal" class="lm" role="dialog" aria-modal="true" aria-labelledby="lmTitle" aria-hidden="true">
+<div id="loginModal" class="lm" role="dialog" aria-modal="true" aria-label="Log in or create an account" aria-hidden="true">
   <div class="lm-backdrop" data-lm-close></div>
   <div class="lm-box">
     <button type="button" class="lm-close" data-lm-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
     <div class="text-center">
-      <img src="assets/img/fincoach-logo.png" alt="FinCoach" class="h-8 mx-auto" />
-      <h2 id="lmTitle" class="mt-5 font-head font-extrabold text-[1.7rem] leading-tight">Log in to your account</h2>
-      <p class="mt-1.5 text-muted" id="lmSub">Track applications and manage your offers.</p>
+      <img src="assets/img/fincoach-logo.png" alt="FinCoach" class="h-9 mx-auto" />
     </div>
     <div class="auth-tabs mt-6" id="lmTabs">
       <span class="tab-pill"></span>
@@ -412,12 +397,10 @@
       </div>
       <div class="flex items-center justify-between mt-4 text-[15px]">
         <label class="flex items-center gap-2 text-muted font-semibold cursor-pointer"><input type="checkbox" class="w-4 h-4 accent-[#e8205a]" checked /> Remember me</label>
-        <a href="login.html" class="font-bold text-brand hover:underline">Forgot password?</a>
+        <a href="contact.html" class="font-bold text-brand hover:underline">Forgot password?</a>
       </div>
       <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please fill in all fields.</p>
       <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Log in</button>
-      <div class="divider my-5">or</div>
-      <a href="login.html" class="social-btn w-full"><i class="fa-solid fa-mobile-screen-button text-brand"></i> Log in with OTP</a>
     </form>
 
     <form class="lm-pane mt-6" id="lmRegister" novalidate>
@@ -440,7 +423,6 @@
         <a href="track.html" class="btn btn-ghost">Track</a>
       </div>
     </div>
-    <p class="mt-6 text-center text-xs text-muted"><i class="fa-solid fa-lock text-brand"></i> Secured with 256-bit encryption</p>
   </div>
 </div>
 
@@ -449,7 +431,7 @@
   <a href="apply.html" data-nav="apply"><i class="fa-solid fa-hand-holding-dollar"></i><span>Apply</span></a>
   <a href="track.html" data-nav="track" class="mn-main"><span class="mn-fab"><i class="fa-solid fa-location-crosshairs"></i></span><span>Track</span></a>
   <a href="contact.html" data-nav="contact"><i class="fa-solid fa-headset"></i><span>Contact</span></a>
-  <a href="login.html" data-nav="login" data-login-open><i class="fa-regular fa-user"></i><span>Account</span></a>
+  <a href="#" data-nav="login" data-login-open><i class="fa-regular fa-user"></i><span>Account</span></a>
 </nav>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="assets/js/main.js"></script>
