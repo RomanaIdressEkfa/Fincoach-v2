@@ -4340,3 +4340,6 @@ h1:not(.ab10-h1) { font-size: clamp(2.5rem, 7vw, 3.8rem) !important; }
 .home #products .lc2:hover .lc2-img { opacity: 1; }
 /* Products slider arrows: no shadow */
 .home #products .sc-arrow, .home #products .sc-arrow:hover, .home #products .sc-arrow-main, .home #products .sc-arrow-main:hover { box-shadow: none !important; }
+/* Products slider: solid brand colour instead of gradient (next button + progress bar) */
+.home #products .sc-arrow-main, .home #products .sc-arrow-main:hover { background: var(--brand) !important; }
+.home #products .sc-prog span { background: var(--brand) !important; }
