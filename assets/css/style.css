@@ -4335,3 +4335,8 @@ h1:not(.ab10-h1) { font-size: clamp(2.5rem, 7vw, 3.8rem) !important; }
   opacity: 1; filter: drop-shadow(0 12px 14px rgba(11,21,48,.15)); transform: none; }
 .home #products .lc2:hover .lc2-img { opacity: 1; transform: translateY(-6px) rotate(-4deg) scale(1.05); }
 .home #products .lc2 { min-height: 280px; padding: 21px 21px 19.5px; }
+/* Products pictures: a little softer colour */
+.home #products .lc2-img, .home #products .lc2:nth-child(3n+2) .lc2-img { opacity: .9; filter: saturate(.75) brightness(1.06) drop-shadow(0 12px 14px rgba(11,21,48,.12)); }
+.home #products .lc2:hover .lc2-img { opacity: 1; }
+/* Products slider arrows: no shadow */
+.home #products .sc-arrow, .home #products .sc-arrow:hover, .home #products .sc-arrow-main, .home #products .sc-arrow-main:hover { box-shadow: none !important; }
