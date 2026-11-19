@@ -4194,3 +4194,12 @@ section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdee
 
 /* Home — stats: icon stays brand-coloured on hover (icon-only style has no box behind it) */
 .st4-item:hover .st4-ic { color: var(--brand) !important; }
+
+/* Home — app section: big circle behind the phone is a soft light glow, not a solid disc */
+.ap2-orb i:nth-child(1) { inset: 22%; background: radial-gradient(circle at 50% 45%, #ffd6e3 0%, #ffe9f0 55%, rgba(255,241,245,0) 100%); box-shadow: none; }
+
+/* Track page — "Where to find your ID" cards: gradient rounded-square icon box with a white icon */
+.c-card .c-icon, .c-card:hover .c-icon { width: 58px; height: 58px; border-radius: 18px; display: grid; place-items: center; font-size: 1.35rem;
+  color: #fff !important; background: linear-gradient(140deg, #f2545b 0%, #e8205a 50%, #b0188a 100%) !important;
+  box-shadow: 0 16px 28px -12px rgba(232,32,90,.65) !important; }
+@media (max-width: 767px) { .c-card .c-icon { width: 50px; height: 50px; border-radius: 15px; font-size: 1.15rem; } }
