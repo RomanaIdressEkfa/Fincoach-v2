@@ -4276,3 +4276,43 @@ section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdee
   .wnav .nav-wrap.scrolled > nav > div:first-child { height: 84px; }
   .wnav .nav-wrap.scrolled > nav > div:first-child img { height: 34px; transform: none; }
 }
+
+/* Header size like the live FinCoach site: 84px bar, 34px logo, 15px menu text and buttons */
+@media (min-width: 1024px) {
+  .wnav .nav-wrap > nav > div:first-child { height: 84px; }
+  .wnav .nav-wrap > nav > div:first-child img { height: 34px; }
+  .wnav .nav-link, .wnav .nav-text-btn { font-size: 15px; }
+  .wnav .nav-wrap .btn-apply { padding: .78rem 1.5rem !important; font-size: 15px; }
+  .wnav .nav-wrap .btn-track { padding: .72rem 1.3rem !important; font-size: 15px; }
+}
+
+/* Loans mega menu: same width as the menu bar container, centred, rounded card instead of full width */
+@media (min-width: 1024px) {
+  .wnav .mega { left: 50%; right: auto; width: min(1300px, calc(100% - 80px)); top: calc(100% + 3px);
+    transform: translate(-50%, 8px); border: 1px solid #f3e6eb; border-radius: 28px; overflow: hidden; }
+  .wnav .mega.open { transform: translate(-50%, 0); }
+}
+
+/* Home hero photo: rings and glow like the live site — 520px dashed ring, 640px outer ring, soft pink glow */
+@media (min-width: 1024px) {
+  .home .hs-media .hs-ring { display: block; width: 520px !important; height: 520px !important; }
+  .home .hs-media .hs-ring-2 { width: 640px !important; height: 640px !important; border-color: rgba(232,32,90,.16) !important; }
+  .home .hs-media::before { content: "" !important; position: absolute; width: 70%; aspect-ratio: 1 / 1; left: 15%; top: 12%; border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,32,90,.22), transparent 65%); filter: blur(30px); z-index: -1; }
+}
+
+/* ==========================================================
+   Site-wide heading scale: biggest text on the site is 3.8rem.
+   Every h1 is bold; page h1s are exactly 3.8rem on desktop
+   (About/Contact keep their smaller Wallex-style h1);
+   big section h2s are capped at 3rem so the h1 stays the largest.
+   ========================================================== */
+h1 { font-weight: 700 !important; }
+h1:not(.ab10-h1) { font-size: clamp(2.5rem, 7vw, 3.8rem) !important; }
+@media (min-width: 1024px) { h1:not(.ab10-h1) { font-size: 3.8rem !important; } }
+.ab5-h2 { font-size: clamp(1.9rem, 4vw, 3rem) !important; }
+/* homepage: same scale (its own rules were stronger) */
+.home main h1:not(.x-none) { font-weight: 700 !important; }
+.home main h2 { font-size: clamp(1.9rem, 4vw, 3rem) !important; }
+/* About numbers 01/02/03: never above 3.8rem */
+.ab8-val-n { font-size: clamp(2.4rem, 6vw, 3.8rem) !important; }
