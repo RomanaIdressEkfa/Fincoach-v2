@@ -4343,3 +4343,5 @@ h1:not(.ab10-h1) { font-size: clamp(2.5rem, 7vw, 3.8rem) !important; }
 /* Products slider: solid brand colour instead of gradient (next button + progress bar) */
 .home #products .sc-arrow-main, .home #products .sc-arrow-main:hover { background: var(--brand) !important; }
 .home #products .sc-prog span { background: var(--brand) !important; }
+/* Products: Learn More hover = same solid pink as the slider button */
+.home #products .lc2:hover .lc2-btn, .home #products .lc2-btn:hover { color: #fff !important; background: var(--brand) !important; border-color: var(--brand) !important; box-shadow: none !important; }
