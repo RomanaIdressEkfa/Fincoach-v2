@@ -115,8 +115,8 @@
             <img src="assets/img/fincoach-logo.png" alt="FinCoach" class="h-8 relative" />
             <p class="mt-3 font-semibold leading-relaxed text-ink max-w-xs relative">App to apply and manage your loan</p>
             <div class="mega-badges relative">
-              <a href="#" aria-label="Get it on Google Play"><img src="assets/img/badge-google-play.svg" alt="Get it on Google Play" /></a>
-              <a href="#" aria-label="Download on the App Store"><img src="assets/img/badge-app-store.svg" alt="Download on the App Store" /></a>
+              <a href="#" class="tb-ic tb-ic-lg" aria-label="Download on the App Store"><i class="fa-brands fa-apple"></i></a>
+              <a href="#" class="tb-ic tb-ic-lg" aria-label="Get it on Google Play"><i class="fa-brands fa-google-play"></i></a>
             </div>
           </div>
         </div>
@@ -206,8 +206,8 @@
           <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4" data-aos="fade-up" data-aos-delay="220">
             <div class="flex items-center gap-3">
               <span class="text-sm font-semibold text-muted">App available on</span>
-              <a href="#" class="store-mini hs-store" aria-label="Download on the App Store"><img src="assets/img/badge-app-store.svg" alt="Download on the App Store" /></a>
-              <a href="#" class="store-mini hs-store" aria-label="Get it on Google Play"><img src="assets/img/badge-google-play.svg" alt="Get it on Google Play" /></a>
+              <a href="#" class="tb-ic tb-ic-lg" aria-label="Download on the App Store"><i class="fa-brands fa-apple"></i></a>
+              <a href="#" class="tb-ic tb-ic-lg" aria-label="Get it on Google Play"><i class="fa-brands fa-google-play"></i></a>
             </div>
             <div class="hs-nav" id="hsNav" role="tablist" aria-label="Hero slides">
               <button type="button" class="is-active" aria-label="Slide 1"><span></span></button>
@@ -222,15 +222,15 @@
           <div class="hs-ring"></div><div class="hs-ring hs-ring-2"></div>
           <div class="hs-stack hs-frames" id="hsMedia">
             <figure class="hs-frame is-active" data-slide="0">
-              <img src="https://images.unsplash.com/photo-1713173922799-42c38fc7359c?w=900&q=75&auto=format&fit=crop" alt="Smiling FinCoach customer in Bangladesh" />
+              <img src="https://images.unsplash.com/photo-1762341104634-998bbee0ccba?w=1200&h=1380&q=85&auto=format&fit=crop&crop=faces" alt="FinCoach customer, a young professional in Dhaka, at her office desk" />
               <figcaption class="hs-chip hs-chip-a"><span class="hs-chip-ic bg-green-100 text-green-600"><i class="fa-solid fa-circle-check"></i></span><span><small>Loan approved</small><b>৳ 5,00,000</b></span></figcaption>
             </figure>
             <figure class="hs-frame" data-slide="1">
-              <img src="https://images.unsplash.com/photo-1764740146693-4955d02c98f9?w=900&q=75&auto=format&fit=crop" alt="Happy home loan customer at her home" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1759840278361-f1adc75529a1?w=1200&h=1380&q=85&auto=format&fit=crop&crop=faces" alt="Smiling Bangladeshi woman, a FinCoach home loan customer" loading="lazy" />
               <figcaption class="hs-chip hs-chip-a"><span class="hs-chip-ic bg-brand-tint text-brand"><i class="fa-solid fa-percent"></i></span><span><small>Home loan from</small><b>8.5% p.a.</b></span></figcaption>
             </figure>
             <figure class="hs-frame" data-slide="2">
-              <img src="https://images.unsplash.com/photo-1658839128300-901b7070c97b?w=900&q=75&auto=format&fit=crop" alt="Customer checking his card offers on his phone" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1584940120743-8981ca35b012?w=1200&h=1380&q=85&auto=format&fit=crop&crop=faces" alt="Confident Bangladeshi professional in a suit" loading="lazy" />
               <figcaption class="hs-chip hs-chip-a"><span class="hs-chip-ic bg-blue-100 text-blue-600"><i class="fa-regular fa-credit-card"></i></span><span><small>Annual fee</small><b>0% in year 1</b></span></figcaption>
             </figure>
           </div>
@@ -267,11 +267,14 @@
         <h2 class="reveal ab5-h2 mt-4">Find the <span class="text-grad">right loan</span> for your needs</h2>
         <p class="reveal mt-3 text-lg text-muted">Explore loans built to help you cover costs, simplify payments or plan for what's next.</p>
       </div>
+      <div class="reveal flex items-center gap-3">
+        <div class="sc-prog hidden sm:block mr-2" aria-hidden="true"><span id="scBar"></span></div>
+        <button type="button" class="sc-arrow" id="scPrev" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+        <button type="button" class="sc-arrow sc-arrow-main" id="scNext" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
     </div>
 
     <div class="sc-wrap mt-10 md:mt-12">
-    <button type="button" class="sc-edge sc-edge-prev" id="scPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-    <button type="button" class="sc-edge sc-edge-next" id="scNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
     <div class="sc-track" id="scTrack" tabindex="0" aria-label="Loan types">
       <article class="lc2" data-aos="fade-left" data-aos-delay="0">
         <div class="lc2-top">
@@ -802,9 +805,9 @@
         <div class="tw4-media" data-aos="zoom-in" data-aos-delay="250">
           <span class="tw4-blob" aria-hidden="true"></span>
           <div class="tw4-photo" id="twPhotos">
-            <img class="is-active" src="https://images.unsplash.com/photo-1719245309062-f6ef7879a831?w=800&h=900&q=75&auto=format&fit=crop" alt="Romana, a FinCoach customer, smiling at her desk" loading="lazy" />
-            <img src="https://images.unsplash.com/photo-1774437676976-655ad890b6ff?w=800&h=900&q=75&auto=format&fit=crop" alt="Kamrul, a FinCoach SME customer, smiling" loading="lazy" />
-            <img src="https://images.unsplash.com/photo-1789500381106-ba13068a6520?w=800&h=900&q=75&auto=format&fit=crop" alt="Farhana, a FinCoach home loan customer, smiling" loading="lazy" />
+            <img class="is-active" src="https://images.unsplash.com/photo-1762341116897-921e2a52f7ff?w=1000&h=1200&q=85&auto=format&fit=crop&crop=faces" alt="Romana, a FinCoach customer, working on her laptop at her desk" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1771244678811-50c22f17c791?w=1000&h=1200&q=85&auto=format&fit=crop&crop=faces" alt="Kamrul, a FinCoach SME customer, in his office" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1770626884824-291d1f8fad45?w=1000&h=1200&q=85&auto=format&fit=crop&crop=faces" alt="Farhana, a FinCoach home loan customer, at her bank office" loading="lazy" />
           </div>
           <div class="tw4-chip tw4-chip-a"><span><i class="fa-solid fa-circle-check"></i></span><div><small>Verified</small><b>FinCoach customer</b></div></div>
         </div>
@@ -828,17 +831,17 @@
 
     <div class="bl6 mt-10 md:mt-12">
       <a href="blog-post.html" class="bl6-card" data-aos="fade-up" data-aos-delay="0">
-        <div class="bl6-img"><img src="https://images.unsplash.com/photo-1630987437576-92688f9ad653?w=900&q=75&auto=format&fit=crop" alt="Dhaka city skyline" loading="lazy" /></div>
+        <div class="bl6-img"><img src="https://images.unsplash.com/photo-1776248783518-400b6d0da64c?w=1200&h=800&q=85&auto=format&fit=crop" alt="FinCoach and partner bank team celebrating a new agreement" loading="lazy" /></div>
         <span class="bl6-cat">Partnership</span>
         <h3>FinCoach signs an agreement with IPDC Finance PLC.</h3>
       </a>
       <a href="blog-post.html" class="bl6-card" data-aos="fade-up" data-aos-delay="140">
-        <div class="bl6-img"><img src="https://images.unsplash.com/photo-1780424454821-3ac6d3528e1b?w=900&q=75&auto=format&fit=crop" alt="Apartment building in Dhaka" loading="lazy" /></div>
+        <div class="bl6-img"><img src="https://images.unsplash.com/photo-1758448511578-ec292173b70c?w=1200&h=800&q=85&auto=format&fit=crop" alt="Modern apartment tower in Dhaka" loading="lazy" /></div>
         <span class="bl6-cat">Home loans</span>
         <h3>Buying your first flat in Dhaka: a home loan checklist</h3>
       </a>
       <a href="blog-post.html" class="bl6-card" data-aos="fade-up" data-aos-delay="280">
-        <div class="bl6-img"><img src="https://images.unsplash.com/photo-1651811747558-f580cf4dff2b?w=900&q=75&auto=format&fit=crop" alt="Applying for a loan on a phone" loading="lazy" /></div>
+        <div class="bl6-img"><img src="https://images.unsplash.com/photo-1656236607879-cd489955e17b?w=1200&h=800&q=85&auto=format&fit=crop" alt="Woman applying for a loan on her tablet" loading="lazy" /></div>
         <span class="bl6-cat">Guides</span>
         <h3>What do you need to apply for a loan in Bangladesh?</h3>
       </a>

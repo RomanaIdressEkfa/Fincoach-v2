@@ -4180,3 +4180,17 @@ section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdee
 
 /* Apply page — no shadow on the form card and info cards */
 .ap5-form, .ap5-card, .ap5-why { box-shadow: none !important; }
+
+/* Store links everywhere: the same icon-button style as the top bar and footer */
+.tb-ic.tb-ic-lg { width: 32px; height: 32px; border-radius: 9px; font-size: .9rem; }
+.mega-badges, .ap3-badges { align-items: center; }
+
+/* Home — products: slider controls sit top-right of the heading (progress bar, white prev, pink next) */
+.home #products .sc-arrow { width: 52px; height: 52px; font-size: 1rem; }
+.home #products .sc-prog { width: 140px; }
+
+/* Home — Customer stories card: visible outline on every side */
+.tw4 { border: 1px solid #f3dfe7; box-shadow: none; }
+
+/* Home — stats: icon stays brand-coloured on hover (icon-only style has no box behind it) */
+.st4-item:hover .st4-ic { color: var(--brand) !important; }
