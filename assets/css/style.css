@@ -4222,3 +4222,45 @@ section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdee
 .wnav:has(.ab9-hero) main > section:first-of-type { padding-top: 0 !important; }
 /* Wallex match: hero bottom corners 80px on desktop */
 @media (min-width: 1024px) { .wnav main > section:first-of-type > div:first-child { border-bottom-left-radius: 80px !important; border-bottom-right-radius: 80px !important; } }
+
+/* All pages — Wallex header proportions (desktop): taller top bar = clear gap above the menu,
+   menu is a narrower centred pill */
+@media (min-width: 1024px) {
+  .wnav .nav-wrap:not(.scrolled) .topbar > div { height: 53px; max-width: 1300px; width: calc(100% - 80px); padding-left: 25px; padding-right: 25px; }
+  .wnav .nav-wrap > nav > div:first-child { max-width: 1300px; width: calc(100% - 80px); margin-left: auto !important; margin-right: auto !important;
+    height: 65px; padding: 0 10px 0 25px; border-radius: 100px; border: 0; box-shadow: 0 5px 15px rgba(11,21,48,.05); }
+  .wnav .nav-link, .wnav .nav-text-btn { font-size: 14px; }
+  .wnav .nav-wrap > nav > div:first-child img { height: 30px; width: auto; }
+}
+
+/* All pages — top bar like Wallex: "Support — Legal" on the left, plain store icons on the right */
+.wnav .topbar, .topbar { font-size: 14px; }
+.tb-links { display: flex; align-items: center; gap: 14px; margin: 0; }
+.tb-links a, .tb-app { color: var(--ink-2); font-weight: 400; }
+.tb-links a { transition: color .2s; }
+.tb-links a:hover { color: var(--brand); }
+.tb-dash { display: inline-block; width: 14px; height: 1.5px; background: var(--ink-2); }
+.tb-app { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.tb-store { display: inline-grid; place-items: center; color: var(--ink); font-size: 16px; line-height: 1; transition: color .2s, transform .2s; }
+.tb-store:hover { color: var(--brand); transform: translateY(-1px); }
+.tb-links, .tb-app { font-size: 14px; }
+
+/* Home hero — more room under the menu and a slightly taller hero; partners strip stays attached to the bottom */
+@media (min-width: 1024px) {
+  .home #hero .hs-grid { padding-top: 44px; }
+  .home #hero .hs { padding-bottom: 190px; }
+}
+
+/* Header buttons a little smaller; Track Application slimmer */
+@media (min-width: 1024px) {
+  .wnav .nav-wrap .btn-apply { padding: .7rem 1.35rem !important; font-size: 15px; }
+  .wnav .nav-wrap .btn-track { padding: .62rem 1.1rem !important; font-size: 14px; border-width: 1px; }
+}
+
+/* Home hero heading: 3.6rem on desktop */
+@media (min-width: 1024px) { .home .hs-text h1 { font-size: 3.6rem; } }
+
+/* Scrolled header: one plain white bar — no inner pill shadow or edge */
+.wnav .nav-wrap.scrolled > nav > div:first-child { box-shadow: none !important; border-color: transparent !important; background: transparent !important; }
+/* Scrolled header: full width, square corners */
+.wnav .nav-wrap.scrolled { margin: 0 !important; border-radius: 0 !important; }
