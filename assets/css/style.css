@@ -4212,3 +4212,13 @@ section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdee
 @media (max-width: 639px) {
   .home .ap3-visual .ap2-phone { scale: .8; }
 }
+
+/* All pages — Wallex-style top: header colour is attached to the top edge with square top corners,
+   but keeps a small gap on the left and right (the hero below lines up with it) */
+.wnav .nav-wrap:not(.scrolled), .wnav:has(.ab9-hero) .nav-wrap:not(.scrolled) { margin: 0 20px; border-radius: 0; }
+.wnav main > section:first-of-type { padding-left: 20px !important; padding-right: 20px !important; }
+@media (max-width: 639px) { .wnav .nav-wrap:not(.scrolled), .wnav:has(.ab9-hero) .nav-wrap:not(.scrolled) { margin: 0 10px; } .wnav main > section:first-of-type { padding-left: 10px !important; padding-right: 10px !important; } }
+.wnav main > section:first-of-type > div:first-child { border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; }
+.wnav:has(.ab9-hero) main > section:first-of-type { padding-top: 0 !important; }
+/* Wallex match: hero bottom corners 80px on desktop */
+@media (min-width: 1024px) { .wnav main > section:first-of-type > div:first-child { border-bottom-left-radius: 80px !important; border-bottom-right-radius: 80px !important; } }
