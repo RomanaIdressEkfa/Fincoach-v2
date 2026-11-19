@@ -4226,8 +4226,8 @@ section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdee
 /* All pages — Wallex header proportions (desktop): taller top bar = clear gap above the menu,
    menu is a narrower centred pill */
 @media (min-width: 1024px) {
-  .wnav .nav-wrap:not(.scrolled) .topbar > div { height: 53px; max-width: 1300px; width: calc(100% - 80px); padding-left: 25px; padding-right: 25px; }
-  .wnav .nav-wrap > nav > div:first-child { max-width: 1300px; width: calc(100% - 80px); margin-left: auto !important; margin-right: auto !important;
+  .wnav .nav-wrap:not(.scrolled) .topbar > div { height: 53px; max-width: 1355px; width: calc(100% - 30px); padding-left: 25px; padding-right: 25px; }
+  .wnav .nav-wrap > nav > div:first-child { max-width: 1355px; width: calc(100% - 30px); margin-left: auto !important; margin-right: auto !important;
     height: 65px; padding: 0 10px 0 25px; border-radius: 100px; border: 0; box-shadow: 0 5px 15px rgba(11,21,48,.05); }
   .wnav .nav-link, .wnav .nav-text-btn { font-size: 14px; }
   .wnav .nav-wrap > nav > div:first-child img { height: 30px; width: auto; }
@@ -4247,7 +4247,7 @@ section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdee
 
 /* Home hero — more room under the menu and a slightly taller hero; partners strip stays attached to the bottom */
 @media (min-width: 1024px) {
-  .home #hero .hs-grid { padding-top: 44px; }
+  .home #hero .hs-grid { padding-top: 80px; }
   .home #hero .hs { padding-bottom: 190px; }
 }
 
@@ -4288,7 +4288,7 @@ section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdee
 
 /* Loans mega menu: same width as the menu bar container, centred, rounded card instead of full width */
 @media (min-width: 1024px) {
-  .wnav .mega { left: 50%; right: auto; width: min(1300px, calc(100% - 80px)); top: calc(100% + 3px);
+  .wnav .mega { left: 50%; right: auto; width: min(1355px, calc(100% - 30px)); top: 100%;
     transform: translate(-50%, 8px); border: 1px solid #f3e6eb; border-radius: 28px; overflow: hidden; }
   .wnav .mega.open { transform: translate(-50%, 0); }
 }
@@ -4316,3 +4316,6 @@ h1:not(.ab10-h1) { font-size: clamp(2.5rem, 7vw, 3.8rem) !important; }
 .home main h2 { font-size: clamp(1.9rem, 4vw, 3rem) !important; }
 /* About numbers 01/02/03: never above 3.8rem */
 .ab8-val-n { font-size: clamp(2.4rem, 6vw, 3.8rem) !important; }
+
+/* Desktop header (not scrolled): bar a little lower than 84px */
+@media (min-width: 1024px) { .wnav .nav-wrap:not(.scrolled) > nav > div:first-child { height: 74px; } }
