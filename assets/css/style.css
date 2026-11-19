@@ -4264,3 +4264,15 @@ section:has(> .panel.bg-grad.tr-cta) > .panel.bg-grad.tr-cta { background: #fdee
 .wnav .nav-wrap.scrolled > nav > div:first-child { box-shadow: none !important; border-color: transparent !important; background: transparent !important; }
 /* Scrolled header: full width, square corners */
 .wnav .nav-wrap.scrolled { margin: 0 !important; border-radius: 0 !important; }
+
+/* Header: logo word lines up with the menu text (the F mark makes the image look low), menu text semi-bold */
+@media (min-width: 1024px) {
+  .wnav .nav-wrap > nav > div:first-child img { transform: translateY(-4px); }
+}
+.wnav .nav-link, .wnav .nav-text-btn { font-weight: 600; }
+
+/* Scrolled header: same height as the live site (84px bar, 34px logo) */
+@media (min-width: 1024px) {
+  .wnav .nav-wrap.scrolled > nav > div:first-child { height: 84px; }
+  .wnav .nav-wrap.scrolled > nav > div:first-child img { height: 34px; transform: none; }
+}
