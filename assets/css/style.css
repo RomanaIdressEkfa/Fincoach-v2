@@ -4345,3 +4345,47 @@ h1:not(.ab10-h1) { font-size: clamp(2.5rem, 7vw, 3.8rem) !important; }
 .home #products .sc-prog span { background: var(--brand) !important; }
 /* Products: Learn More hover = same solid pink as the slider button */
 .home #products .lc2:hover .lc2-btn, .home #products .lc2-btn:hover { color: #fff !important; background: var(--brand) !important; border-color: var(--brand) !important; box-shadow: none !important; }
+
+/* ==========================================================
+   Home — How it works: solid button (no gradient on hover), less top/bottom
+   padding, slightly nicer step cards
+   ========================================================== */
+.home .hw-cta, .home .hw-cta:hover { background: var(--brand) !important; background-image: none !important; box-shadow: none !important; }
+.home .hw-cta:hover { background: #d01a4f !important; transform: translateY(-1px); }
+@media (min-width: 768px) { .home .ab5-pledge > div.relative { padding-top: 40px !important; padding-bottom: 40px !important; } }
+.home .hw-step { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .3s; }
+.home .hw-step:hover { transform: translateY(-4px); border-color: #f5cfdc; box-shadow: 0 22px 40px -26px rgba(232,32,90,.55); }
+.home .hw-num { color: var(--brand); }
+.home .hw-step h3 { font-weight: 700; }
+@media (min-width: 768px) { .home .ab5-pledge > div.relative > ol { margin-top: 36px !important; } }
+/* How it works: heading extra-bold like Products (42px/800); step titles smaller and bold */
+.home .ab5-pledge h2.ab5-h2 { font-size: 2.8rem !important; font-weight: 800 !important; line-height: 1.1 !important; letter-spacing: -.025em; }
+.home .ab5-pledge .hw-step h3 { font-size: 1.25rem !important; font-weight: 800 !important; letter-spacing: -.01em; }
+.home .ab5-pledge .hw-step > p { font-size: .9rem !important; line-height: 1.5 !important; }
+/* Products cards: title and text one size bigger */
+.home #products .lc2 h3 { font-size: 1.35rem !important; }
+.home #products .lc2 > p { font-size: 1rem !important; }
+/* How it works: text inside the small boxes one size bigger */
+.home .hw-row, .home .hw-row span, .home .hw-row b { font-size: 14.25px !important; }
+.home .hw-row i { font-size: 12px !important; }
+.home .hw-row em { font-size: 11px !important; }
+.home .hw-row span, .home .hw-row b { font-weight: 700 !important; }
+.home #products .lc2 > p { font-size: .95rem !important; }
+.home #products .lc2 > p { max-width: 75% !important; }
+.home #products { padding-top: 40px !important; }
+
+/* Home — same space between every section (48px) */
+.home main > section:not(#hero) { padding-top: 48px !important; }
+.home #products { padding-bottom: 0 !important; }
+.home #blog { padding-bottom: 48px !important; }
+/* fine-tune so every visible gap is exactly 48px */
+.home main > section#products { padding-top: 50px !important; }
+.home main > section:not(#hero):has(.ab5-pledge) { padding-top: 41px !important; }
+.home main > section:not(#hero):has(.ap3) { padding-top: 51px !important; }
+.home main > section#calculator { padding-top: 46px !important; }
+.home main > section:not(#hero):has(.tw4) { padding-top: 56px !important; }
+.home main > section#blog { padding-top: 46px !important; padding-bottom: 43px !important; }
+/* Home — Mobile app: heading bold and text size exactly like the live site (43.5px/800, text 16.9px) */
+.home .ap3 h2.font-head { font-size: 2.9rem !important; font-weight: 800 !important; line-height: 1.06 !important; letter-spacing: -.025em; }
+.home .ap3 h2.font-head + p { font-size: 1.125rem !important; line-height: 1.55; }
+.home .ap3 p.font-head { font-weight: 800 !important; }
