@@ -4389,3 +4389,6 @@ h1:not(.ab10-h1) { font-size: clamp(2.5rem, 7vw, 3.8rem) !important; }
 .home .ap3 h2.font-head { font-size: 2.9rem !important; font-weight: 800 !important; line-height: 1.06 !important; letter-spacing: -.025em; }
 .home .ap3 h2.font-head + p { font-size: 1.125rem !important; line-height: 1.55; }
 .home .ap3 p.font-head { font-weight: 800 !important; }
+.home #calculator h2.ab5-h2 { font-size: 2.8rem !important; font-weight: 800 !important; line-height: 1.1 !important; letter-spacing: -.025em; }
+/* Customer stories + Blog headings: extra-bold 42px like the other sections */
+.home .tw4 h2.ab5-h2, .home #blog h2.ab5-h2 { font-size: 2.8rem !important; font-weight: 800 !important; line-height: 1.1 !important; letter-spacing: -.025em; }
