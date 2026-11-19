@@ -4319,3 +4319,19 @@ h1:not(.ab10-h1) { font-size: clamp(2.5rem, 7vw, 3.8rem) !important; }
 
 /* Desktop header (not scrolled): bar a little lower than 84px */
 @media (min-width: 1024px) { .wnav .nav-wrap:not(.scrolled) > nav > div:first-child { height: 74px; } }
+
+/* ==========================================================
+   Home — Products section: font sizes and pictures exactly like the live site
+   (heading 42px/800, intro 16.9px, card title 18.3px/800, card text 13.5px,
+   Learn More 12.75px/800, picture 120px full colour)
+   ========================================================== */
+.home #products h2.ab5-h2 { font-size: 2.8rem !important; font-weight: 800 !important; line-height: 1.1 !important; letter-spacing: -.025em; }
+.home #products .ab5-h2 + p { font-size: 1.125rem; line-height: 1.55; }
+.home #products .lc2 h3 { font-size: 1.22rem !important; font-weight: 800 !important; line-height: 1.15; letter-spacing: -.01em; }
+.home #products .lc2 > p { font-size: .9rem !important; line-height: 1.5; max-width: 62%; }
+.home #products .lc2-btn { font-size: .85rem !important; font-weight: 800 !important; }
+.home #products .lc2-img, .home #products .lc2:nth-child(3n+2) .lc2-img {
+  top: auto; left: auto; right: 9px; bottom: 10.5px; width: 120px; height: 120px; aspect-ratio: auto; object-fit: contain;
+  opacity: 1; filter: drop-shadow(0 12px 14px rgba(11,21,48,.15)); transform: none; }
+.home #products .lc2:hover .lc2-img { opacity: 1; transform: translateY(-6px) rotate(-4deg) scale(1.05); }
+.home #products .lc2 { min-height: 280px; padding: 21px 21px 19.5px; }
