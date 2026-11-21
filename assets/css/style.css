@@ -4764,3 +4764,15 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
   .lp2-plogos { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
   .lp2-plogos img { width: 100%; max-width: none; height: 52px; padding: .65rem .5rem; border-radius: 12px; background: #fff; border: 1px solid var(--line); object-fit: contain; opacity: .85; }
 }
+/* All pages — tablet & desktop: page titles (H1) are 3.4rem; phone sizes unchanged */
+@media (min-width: 768px) {
+  html body:not(#x1):not(#x2) main h1 { font-size: 3.4rem !important; }
+  html body:not(#x1):not(#x2) main h1 span { font-size: inherit !important; }
+}
+/* All pages — tablet & desktop: section headings match the page title size (3.4rem) */
+@media (min-width: 768px) {
+  html body:not(#x1):not(#x2) main :is(.ab5-h2, .w-h2, .ab8-statement),
+  html body.home:not(#x1):not(#x2) main h2 { font-size: 3.4rem !important; line-height: 1.1 !important; }
+  html body:not(#x1):not(#x2) main :is(.ab5-h2, .w-h2, .ab8-statement) span,
+  html body.home:not(#x1):not(#x2) main h2 span { font-size: inherit !important; }
+}
