@@ -4757,3 +4757,10 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
 .nav-text-btn { padding: .6rem 1.15rem !important; line-height: 1.2; }
 /* CTA banner (all pages): flat brand pink, no dark purple fade on the right */
 .ab8-cta { background: var(--brand) !important; }
+/* Loan — partner strip on phones: centred title, logos in a neat 3-column tile grid */
+@media (max-width: 767px) {
+  .lp2-partners { flex-direction: column; align-items: stretch; gap: .9rem; padding: 1rem; border-radius: 20px; box-shadow: none; }
+  .lp2-partners p { text-align: center; font-size: .9rem; white-space: normal; }
+  .lp2-plogos { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+  .lp2-plogos img { width: 100%; max-width: none; height: 52px; padding: .65rem .5rem; border-radius: 12px; background: #fff; border: 1px solid var(--line); object-fit: contain; opacity: .85; }
+}
