@@ -4751,3 +4751,5 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
   .fq2-topic i { width: auto; height: auto; margin: 0; font-size: .9rem; }
   .fq2-topic b { font-size: .92rem; line-height: 1.2; }
 }
+/* Header "Log in": even padding so the pink hover pill sits centred on the text */
+.nav-text-btn { padding: .6rem 1.15rem !important; line-height: 1.2; }
