@@ -4711,8 +4711,10 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
   /* About: photo, vision/mission cards, stats, promise cards */
   .ab10-photo { min-height: 0 !important; aspect-ratio: 4 / 3; }
   .ab10-card-in { min-height: 156px !important; }
-  html body.wnav:not(.home):not(#x1):not(#x2) .ab10-stats :is(b, strong, span) { font-size: 26px !important; }
-  html body.wnav:not(.home):not(#x1):not(#x2) .ab10-stats :is(b, strong, span) :is(sup, small) { font-size: 14px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .ab10-stats b { font-size: 26px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .ab10-stats b span { font-size: inherit !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .ab10-stats b sup { font-size: 12px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .ab10-stats > div > span { font-size: 14px !important; line-height: 1.35; margin-top: .4rem; }
   .ab8-val { padding: 1.25rem 1.25rem 1.2rem !important; }
   html body.wnav:not(.home):not(#x1):not(#x2) .ab8-val-n { font-size: 28px !important; top: .8rem; right: 1rem; }
 
