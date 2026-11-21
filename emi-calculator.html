@@ -173,15 +173,9 @@
   <div class="ab5-hero ct5-hero">
     <span class="ab5-dots"></span><span class="ab5-glow"></span>
     <div class="relative max-w-site mx-auto px-4 md:px-6 pt-12 md:pt-16 pb-14 md:pb-16">
-      <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span class="text-brand">EMI Calculator</span></nav>
-      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end mt-6">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
         <div class="lg:col-span-7">
-          <h1 class="ab5-h1 mt-5">Plan your loan with our <span class="text-grad">EMI calculator</span></h1>
-        </div>
-        <div class="lg:col-span-5 ec2-hl">
-          <div><i class="fa-solid fa-bolt"></i><b>Instant</b><span>Results as you type</span></div>
-          <div><i class="fa-solid fa-table-list"></i><b>Full schedule</b><span>Yearly &amp; monthly</span></div>
-          <div><i class="fa-solid fa-gift"></i><b>100% free</b><span>No sign-up needed</span></div>
+          <h1 class="ab5-h1">Plan your loan with our <span class="text-grad">EMI calculator</span></h1>
         </div>
       </div>
     </div>
@@ -194,7 +188,6 @@
 <section id="calculator" class="px-2.5 pt-10 md:pt-14">
   <div class="max-w-site mx-auto px-4 md:px-6">
     <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-      <p class="reveal font-head font-extrabold text-xl">Choose a loan type</p>
       <div class="reveal emi2-types" role="group" aria-label="Loan type">
         <button type="button" class="active" data-emi-rate="9"><i class="fa-solid fa-user"></i> Personal</button>
         <button type="button" data-emi-rate="8.5"><i class="fa-solid fa-house"></i> Home</button>
@@ -212,7 +205,6 @@
             <div class="emi2-box"><span>৳</span><input id="amtIn" inputmode="numeric" aria-label="Loan amount in Taka" /></div>
           </div>
           <input id="amt" type="range" class="rng emi2-rng" min="50000" max="10000000" step="10000" value="1000000" aria-label="Loan amount slider" />
-          <div class="emi2-minmax"><span>৳50K</span><span>৳25L</span><span>৳50L</span><span>৳75L</span><span>৳1 Cr</span></div>
         </div>
         <div class="emi2-row">
           <div class="emi2-head">
@@ -220,7 +212,6 @@
             <div class="emi2-box"><input id="tenIn" inputmode="numeric" aria-label="Loan tenure in months" /><span>months</span></div>
           </div>
           <input id="ten" type="range" class="rng emi2-rng" min="6" max="300" step="6" value="60" aria-label="Loan tenure slider" />
-          <div class="emi2-minmax"><span>6 mo</span><span>5 yr</span><span>10 yr</span><span>15 yr</span><span>25 yr</span></div>
         </div>
         <div class="emi2-row">
           <div class="emi2-head">
@@ -228,9 +219,7 @@
             <div class="emi2-box"><input id="rateIn" inputmode="decimal" aria-label="Interest rate" /><span>%</span></div>
           </div>
           <input id="rate" type="range" class="rng emi2-rng" min="5" max="24" step="0.1" value="9" aria-label="Interest rate slider" />
-          <div class="emi2-minmax"><span>5%</span><span>10%</span><span>15%</span><span>20%</span><span>24%</span></div>
         </div>
-        <p class="emi2-note"><i class="fa-solid fa-circle-info"></i> Indicative only. Your final rate depends on the lender and your profile.</p>
       </div>
 
       <!-- Result -->
@@ -272,7 +261,7 @@
 <section id="schedule" class="pt-16 md:pt-24 scroll-mt-28">
   <div class="max-w-site mx-auto px-4 md:px-6">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-      <div><h2 class="reveal w-h2">Your repayment schedule</h2><p class="reveal w-lead mt-2">How each payment splits between principal and interest.</p></div>
+      <div><h2 class="reveal w-h2">Your repayment schedule</h2></div>
       <div class="inline-flex bg-[#eceef3] rounded-full p-1.5 self-start" id="schedTabs">
         <button type="button" class="tab-btn active" data-mode="year">Yearly</button>
         <button type="button" class="tab-btn" data-mode="month">Monthly</button>
@@ -293,31 +282,24 @@
     <div class="reveal lg:col-span-7 ab5-pledge ec2-formula">
       <span class="ab5-pledge-glow"></span>
       <div class="relative">
-        <h2 class="ab5-h2 !text-white mt-4">How is EMI calculated?</h2>
-        <p class="text-white/70 mt-3 max-w-xl leading-relaxed">EMI (Equated Monthly Instalment) is the fixed amount you pay every month until the loan is repaid. Banks use this standard formula:</p>
+        <h2 class="ab5-h2 !text-white">How is EMI calculated?</h2>
         <div class="ec2-eq mt-7">EMI = P × r × (1 + r)<sup>n</sup> ÷ ((1 + r)<sup>n</sup> − 1)</div>
         <div class="ec2-vars mt-5">
           <div><b>P</b><span>Loan amount (principal)</span></div>
           <div><b>r</b><span>Monthly rate = annual rate ÷ 12 ÷ 100</span></div>
           <div><b>n</b><span>Number of monthly instalments</span></div>
         </div>
-        <div class="ec2-ex mt-5">
-          <span class="ec2-ex-ic"><i class="fa-solid fa-calculator"></i></span>
-          <p><b>Example:</b> ৳10,00,000 at 9% for 60 months → r = 0.0075, n = 60 → <b class="text-white">EMI ≈ ৳20,758</b></p>
-        </div>
       </div>
     </div>
 
     <div class="reveal lg:col-span-5 ec2-tips">
-      <span class="ec2-tip-ic"><i class="fa-solid fa-lightbulb"></i></span>
-      <h3 class="font-head font-extrabold text-2xl mt-4">Tips to lower your EMI</h3>
+      <h3 class="font-head font-extrabold text-2xl">Tips to lower your EMI</h3>
       <ol class="mt-5">
-        <li><span>01</span><div><b>Choose a longer tenure</b><p>Lower EMI, but more interest overall.</p></div></li>
-        <li><span>02</span><div><b>Compare rates</b><p>Even 0.5% less can save thousands over the loan.</p></div></li>
-        <li><span>03</span><div><b>Pay a bigger down payment</b><p>Borrow less on home and auto loans.</p></div></li>
-        <li><span>04</span><div><b>Keep a clean record</b><p>A good repayment history unlocks better rates.</p></div></li>
+        <li><span>01</span><div><b>Choose a longer tenure</b></div></li>
+        <li><span>02</span><div><b>Compare rates</b></div></li>
+        <li><span>03</span><div><b>Pay a bigger down payment</b></div></li>
+        <li><span>04</span><div><b>Keep a clean record</b></div></li>
       </ol>
-      <a href="apply.html" class="btn btn-primary w-full mt-6">Compare offers</a>
     </div>
   </div>
 </section>
