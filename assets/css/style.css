@@ -4740,3 +4740,7 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
 @media (max-width: 767px) {
   body.wnav:not(.home) main section [class*="py-12"], body.wnav:not(.home) main section [class*="py-16"] { padding-top: 2rem !important; padding-bottom: 2rem !important; }
 }
+/* Blog newsletter: compact box, heading and form on one centred line */
+@media (min-width: 768px) { .bg2-news { padding: 2rem 2.5rem; } }
+.bg2-news h2 { margin: 0; }
+.bg2-news .bg2-nl { margin: 0; }
