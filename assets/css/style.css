@@ -4602,3 +4602,7 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
 .phero .lp3-pill-ic { color: var(--brand); }
 /* Loan hero joins the header: square top corners (beats .wnav:has(.ab9-hero) 32px rule) */
 .wnav.phero main > section#pageHero > div:first-child { border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; }
+.phero .of-foot { justify-content: flex-end; }
+/* Loan offers — no shadows on the cards */
+.phero .of-card, .phero .of-card:hover, .phero .of-best, .phero .of-best:hover { box-shadow: none !important; }
+.phero .of-best::after, .phero .of-best::before { box-shadow: none !important; }

@@ -120,7 +120,7 @@
     const img = $('[data-l-img]'); img.src = IMG(L.img); img.alt = L.name;
     $$('[data-l-apply]').forEach((a) => { a.href = `apply.html?type=${L.apply}`; });
     $('#lpFeatures').innerHTML = L.features.map(([i, t, d], n) => `
-      <div class="reveal lp2-feat"><span class="lp2-feat-n">0${n + 1}</span><span class="lp2-feat-ic"><i class="fa-solid ${i}"></i></span><h3>${t}</h3><p>${d}</p></div>`).join('');
+      <div class="reveal lp2-feat"><span class="lp2-feat-ic"><i class="fa-solid ${i}"></i></span><h3>${t}</h3><p>${d}</p></div>`).join('');
     // Eligibility checker (tick items, ring fills)
     const eligEl = $('#lpElig');
     eligEl.innerHTML = L.elig.map((s) => `<li><button type="button" class="el2-item" aria-pressed="false"><span class="el2-box"><i class="fa-solid fa-check"></i></span>${esc(s)}</button></li>`).join('');
@@ -167,11 +167,10 @@
         const emi = o.rate != null ? '৳' + money(emiOf(o.rate)) : '—';
         return `<article class="of-card ${best ? 'of-best' : ''}">
           ${best ? '<span class="of-ribbon"><i class="fa-solid fa-crown"></i> Best offer for you</span>' : ''}
-          <div class="of-head"><span class="of-logo"><img src="${o.logo}" alt="" /></span><div><p class="of-name">${o.name}</p><p class="of-sub">${esc(L.name)}</p></div></div>
+          <div class="of-head"><span class="of-logo"><img src="${o.logo}" alt="" /></span><div><p class="of-name">${o.name}</p></div></div>
           <div class="of-rate"><b>${rateTxt}</b>${o.rate != null ? '<span>p.a.</span>' : ''}</div>
           <div class="of-meta"><div><small>Monthly EMI</small><b>${emi}</b></div><div><small>Processing fee</small><b>${o.fee}</b></div></div>
-          ${best ? `<ul class="of-perks"><li><i class="fa-solid fa-check"></i>Up to ${esc(L.max)}</li><li><i class="fa-solid fa-check"></i>Tenure ${esc(L.tenure)}</li><li><i class="fa-solid fa-check"></i>Decision in ${esc(L.speed)}</li></ul>` : ''}
-          <div class="of-foot"><a href="loan.html?type=${key}#faqList" class="of-link">Details</a><a href="apply.html?type=${L.apply}" class="btn ${best ? 'btn-white' : 'btn-primary'} !py-2.5 !px-5 text-sm">Apply${best ? ' now' : ''}</a></div>
+          <div class="of-foot"><a href="apply.html?type=${L.apply}" class="btn ${best ? 'btn-white' : 'btn-primary'} !py-2.5 !px-5 text-sm">Apply${best ? ' now' : ''}</a></div>
         </article>`;
       };
       const draw = (by) => {
