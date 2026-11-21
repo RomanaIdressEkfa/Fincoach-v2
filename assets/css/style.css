@@ -4567,3 +4567,38 @@ main:has(#trackForm) .tr-cta h2 { font-size: clamp(1.8rem, 3vw, 2.4rem) !importa
 /* Loan pages — equal 48px gaps between sections, like the homepage */
 main:has(.ab9-hero) > section + section { padding-top: 48px !important; }
 main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
+
+/* ==========================================================
+   Loan page — home-style header + hero: one light pink rounded shape
+   (header bar sits on the hero background, same as the home page)
+   ========================================================== */
+.phero .nav-wrap { margin: 10px 10px 0; border-radius: 32px 32px 0 0; background: #fff6f9; transition: border-radius .3s, box-shadow .3s, background .3s; }
+.phero .nav-wrap.scrolled { border-radius: 0 0 24px 24px; background: #fff !important; }
+.phero .topbar { background: transparent; border-bottom: 0; }
+.phero .nav-wrap > nav::after { content: none; }
+.phero .nav-wrap > nav > div:first-child { background: #fff; border: 1px solid #fff; border-radius: 24px; box-shadow: 0 10px 30px -22px rgba(11,21,48,.25); }
+@media (max-width: 1439px) { .phero .nav-wrap > nav > div:first-child { margin-left: 1rem; margin-right: 1rem; } }
+.phero .nav-pill { background: transparent; border: 0; box-shadow: none; }
+.phero #pageHero { padding-top: 0; }
+
+.phero .lp3-hero { color: var(--ink); background: #fff6f9; border-radius: 0 0 32px 32px; }
+.phero .lp3-hero .ab9-grid { background-image: linear-gradient(rgba(232,32,90,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(232,32,90,.06) 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(ellipse 55% 60% at 75% 40%, #000 10%, transparent 70%); mask-image: radial-gradient(ellipse 55% 60% at 75% 40%, #000 10%, transparent 70%); }
+.phero .ab9-crumb, .phero .ab9-crumb a { color: var(--muted); }
+.phero .ab9-crumb a:hover, .phero .ab9-crumb span { color: var(--brand); }
+.phero .lp3-pill { color: var(--ink); background: #fff; border: 1px solid #f8d2de; }
+.phero .lp3-h1 { color: var(--ink); }
+.phero .lp3-hero .ab9-lead { color: #5b6479; }
+.phero .lp3-stats { background: #fff; border: 1px solid #f3e1e8; }
+.phero .lp3-stats > div + div { border-left-color: #f3e1e8; }
+.phero .lp3-stats small { color: var(--muted); }
+.phero .lp3-stats b { color: var(--ink); }
+.phero .lp3-hero .ab9-ghost { color: var(--ink); background: #fff; border-color: #f1e3e9; }
+.phero .lp3-hero .ab9-ghost:hover { border-color: #f6b6c9; background: #fff; }
+.phero .lp3-photo { background: #f2e6ea; border: 8px solid #fff; box-shadow: 0 50px 90px -40px rgba(11,21,48,.4); }
+.phero .lp3-photo::after { content: none; }
+@media (min-width: 1024px) { .phero .lp3-photo { border-radius: 240px 240px 36px 36px; } }
+.phero .lp3-calc { box-shadow: 0 28px 50px -22px rgba(11,21,48,.35); }
+.phero .lp3-pill-ic { color: var(--brand); }
+/* Loan hero joins the header: square top corners (beats .wnav:has(.ab9-hero) 32px rule) */
+.wnav.phero main > section#pageHero > div:first-child { border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; }
