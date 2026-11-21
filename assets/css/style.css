@@ -4753,3 +4753,5 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
 }
 /* Header "Log in": even padding so the pink hover pill sits centred on the text */
 .nav-text-btn { padding: .6rem 1.15rem !important; line-height: 1.2; }
+/* CTA banner (all pages): flat brand pink, no dark purple fade on the right */
+.ab8-cta { background: var(--brand) !important; }
