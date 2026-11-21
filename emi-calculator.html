@@ -442,7 +442,7 @@
       </div>
       <div class="flex items-center justify-between mt-4 text-[15px]">
         <label class="flex items-center gap-2 text-muted font-semibold cursor-pointer"><input type="checkbox" class="w-4 h-4 accent-[#e8205a]" checked /> Remember me</label>
-        <a href="contact.html" class="font-bold text-brand hover:underline">Forgot password?</a>
+        <button type="button" class="font-bold text-brand hover:underline" data-lm-goto="forgot">Forgot password?</button>
       </div>
       <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please fill in all fields.</p>
       <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Log in</button>
@@ -457,6 +457,42 @@
       <label class="flex items-start gap-3 mt-4 text-muted cursor-pointer text-[15px]"><input type="checkbox" required class="mt-1 w-4 h-4 accent-[#e8205a]" /><span>I agree to the <a href="terms.html" class="font-semibold text-ink underline">Terms</a> and <a href="privacy.html" class="font-semibold text-ink underline">Privacy Policy</a>.</span></label>
       <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please complete all fields and accept the terms.</p>
       <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Create account</button>
+    </form>
+    <form class="lm-pane mt-6" id="lmOtp" novalidate>
+      <div class="text-center">
+        <h3 class="font-head font-extrabold text-2xl">Verify your mobile</h3>
+        <p class="text-muted mt-1.5 text-[15px]">Enter the 6-digit code we sent to <b class="text-ink" id="lmOtpPhone">your mobile</b></p>
+      </div>
+      <div class="otp mt-6" id="lmOtpBoxes">
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 1" /><input inputmode="numeric" maxlength="1" aria-label="Digit 2" /><input inputmode="numeric" maxlength="1" aria-label="Digit 3" /><input inputmode="numeric" maxlength="1" aria-label="Digit 4" /><input inputmode="numeric" maxlength="1" aria-label="Digit 5" /><input inputmode="numeric" maxlength="1" aria-label="Digit 6" />
+      </div>
+      <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please enter the 6-digit code.</p>
+      <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-6">Verify &amp; continue</button>
+      <p class="text-center text-muted mt-4 text-[15px]">Didn't get it? <button type="button" class="font-bold text-brand disabled:text-muted disabled:cursor-not-allowed" id="lmResend" disabled>Resend in <span id="lmResendT">3:00</span></button></p>
+      <p class="text-center mt-2"><button type="button" class="text-sm font-semibold text-muted hover:text-brand" data-lm-goto="register">Change number</button></p>
+    </form>
+    <form class="lm-pane mt-6" id="lmForgot" novalidate>
+      <div class="text-center">
+        <h3 class="font-head font-extrabold text-2xl">Reset your password</h3>
+        <p class="text-muted mt-1.5 text-[15px]">Enter your registered mobile number and we'll send you a 6-digit code.</p>
+      </div>
+      <div class="field mt-6"><div class="ic-wrap"><i class="fa-solid fa-mobile-screen f-ic"></i><span class="prefix">+880</span><input required type="tel" inputmode="numeric" maxlength="11" class="has-prefix" placeholder="1XXX-XXXXXX" aria-label="Mobile number" /></div></div>
+      <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please enter your mobile number.</p>
+      <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Send code</button>
+      <p class="text-center mt-4"><button type="button" class="text-sm font-semibold text-muted hover:text-brand" data-lm-goto="login">Back to log in</button></p>
+    </form>
+
+    <form class="lm-pane mt-6" id="lmReset" novalidate>
+      <div class="text-center">
+        <h3 class="font-head font-extrabold text-2xl">Set a new password</h3>
+        <p class="text-muted mt-1.5 text-[15px]">Use at least 6 characters.</p>
+      </div>
+      <div class="space-y-4 mt-6">
+        <div class="field"><div class="ic-wrap"><i class="fa-solid fa-lock f-ic"></i><input required type="password" minlength="6" placeholder="New password" autocomplete="new-password" class="!pr-14" aria-label="New password" /><button type="button" class="pw-toggle lm-eye" aria-label="Show password"><i class="fa-regular fa-eye"></i></button></div></div>
+        <div class="field"><div class="ic-wrap"><i class="fa-solid fa-lock f-ic"></i><input required type="password" minlength="6" placeholder="Confirm new password" autocomplete="new-password" class="!pr-14" aria-label="Confirm new password" /><button type="button" class="pw-toggle lm-eye" aria-label="Show password"><i class="fa-regular fa-eye"></i></button></div></div>
+      </div>
+      <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Passwords must match and be at least 6 characters.</p>
+      <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Update password</button>
     </form>
 
     <div class="lm-pane text-center py-4" id="lmDone">

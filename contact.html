@@ -177,12 +177,12 @@
     <span class="ab10-dots"></span>
     <div class="relative max-w-site mx-auto px-4 md:px-6 pt-14 md:pt-24 pb-16 md:pb-28">
       <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-center">
-        <h1 class="reveal ab10-h1 lg:col-span-7">Get in touch with our team</h1>
-        <p class="reveal ab10-lead lg:col-span-5">Questions about a loan, a card or your application? Talk to a real person. Advice is always free.</p>
+        <h1 class="reveal ab10-h1 lg:col-span-7">Connect with us<br />Let's find your loan!</h1>
+        <p class="reveal ab10-lead lg:col-span-5">Our team is here to help with any question about a loan, a card or your application. Real people, quick answers, and advice that is always free.</p>
       </div>
 
       <div class="ab10-photo ct8-photo mt-10 md:mt-14" data-aos="fade-up">
-        <img src="https://images.unsplash.com/photo-1690089529169-33fdd5f1c783?w=1600&q=78&auto=format&fit=crop" alt="A FinCoach advisor in Dhaka" />
+        <img src="https://images.unsplash.com/photo-1765020609900-febe9851cb41?w=1800&q=78&auto=format&fit=crop" alt="Two young FinCoach customers checking loan offers on their phones" />
       </div>
     </div>
   </div>
@@ -196,8 +196,8 @@
     <form class="reveal ct5-form" data-demo>
       <div class="relative">
         <div class="text-center">
-          <h2 class="ab10-h1">Send us a message</h2>
-          <p class="ab10-lead mt-3">Tell us how we can help and our team will get back to you within one business day.</p>
+          <h2 class="ab10-h1 ct8-form-h">Send us a message</h2>
+          <p class="ab10-lead ct8-form-sub mt-3">Tell us how we can help and our team will get back to you within one business day.</p>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-4 mt-8">
@@ -207,13 +207,9 @@
           <label class="ct5-f sm:col-span-2"><textarea required name="message" rows="5" placeholder="Your Message" aria-label="Your message"></textarea></label>
         </div>
 
-        <label class="flex items-start gap-3 mt-5 text-muted cursor-pointer text-[15px]">
-          <input type="checkbox" required class="mt-1 w-4 h-4 accent-[#e8205a]" />
-          <span>I agree to the <a href="terms.html" class="font-semibold text-ink underline">Terms</a> and <a href="privacy.html" class="font-semibold text-ink underline">Privacy Policy</a>.</span>
-        </label>
 
         <div class="flex justify-center mt-7">
-          <button type="submit" class="btn btn-primary !px-9 !py-4 text-lg w-full sm:w-auto" data-label='Send message <i class="fa-solid fa-paper-plane"></i>'>Send message <i class="fa-solid fa-paper-plane"></i></button>
+          <button type="submit" class="btn btn-primary !px-9 !py-4 text-lg w-full sm:w-auto" data-label='Send message'>Send message</button>
         </div>
         <p data-ok class="hidden mt-4 text-center font-semibold text-green-600"><i class="fa-solid fa-circle-check"></i> Thank you! We've received your message and will be in touch soon.</p>
       </div>
@@ -323,7 +319,7 @@
       </div>
       <div class="flex items-center justify-between mt-4 text-[15px]">
         <label class="flex items-center gap-2 text-muted font-semibold cursor-pointer"><input type="checkbox" class="w-4 h-4 accent-[#e8205a]" checked /> Remember me</label>
-        <a href="contact.html" class="font-bold text-brand hover:underline">Forgot password?</a>
+        <button type="button" class="font-bold text-brand hover:underline" data-lm-goto="forgot">Forgot password?</button>
       </div>
       <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please fill in all fields.</p>
       <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Log in</button>
@@ -338,6 +334,42 @@
       <label class="flex items-start gap-3 mt-4 text-muted cursor-pointer text-[15px]"><input type="checkbox" required class="mt-1 w-4 h-4 accent-[#e8205a]" /><span>I agree to the <a href="terms.html" class="font-semibold text-ink underline">Terms</a> and <a href="privacy.html" class="font-semibold text-ink underline">Privacy Policy</a>.</span></label>
       <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please complete all fields and accept the terms.</p>
       <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Create account</button>
+    </form>
+    <form class="lm-pane mt-6" id="lmOtp" novalidate>
+      <div class="text-center">
+        <h3 class="font-head font-extrabold text-2xl">Verify your mobile</h3>
+        <p class="text-muted mt-1.5 text-[15px]">Enter the 6-digit code we sent to <b class="text-ink" id="lmOtpPhone">your mobile</b></p>
+      </div>
+      <div class="otp mt-6" id="lmOtpBoxes">
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 1" /><input inputmode="numeric" maxlength="1" aria-label="Digit 2" /><input inputmode="numeric" maxlength="1" aria-label="Digit 3" /><input inputmode="numeric" maxlength="1" aria-label="Digit 4" /><input inputmode="numeric" maxlength="1" aria-label="Digit 5" /><input inputmode="numeric" maxlength="1" aria-label="Digit 6" />
+      </div>
+      <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please enter the 6-digit code.</p>
+      <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-6">Verify &amp; continue</button>
+      <p class="text-center text-muted mt-4 text-[15px]">Didn't get it? <button type="button" class="font-bold text-brand disabled:text-muted disabled:cursor-not-allowed" id="lmResend" disabled>Resend in <span id="lmResendT">3:00</span></button></p>
+      <p class="text-center mt-2"><button type="button" class="text-sm font-semibold text-muted hover:text-brand" data-lm-goto="register">Change number</button></p>
+    </form>
+    <form class="lm-pane mt-6" id="lmForgot" novalidate>
+      <div class="text-center">
+        <h3 class="font-head font-extrabold text-2xl">Reset your password</h3>
+        <p class="text-muted mt-1.5 text-[15px]">Enter your registered mobile number and we'll send you a 6-digit code.</p>
+      </div>
+      <div class="field mt-6"><div class="ic-wrap"><i class="fa-solid fa-mobile-screen f-ic"></i><span class="prefix">+880</span><input required type="tel" inputmode="numeric" maxlength="11" class="has-prefix" placeholder="1XXX-XXXXXX" aria-label="Mobile number" /></div></div>
+      <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Please enter your mobile number.</p>
+      <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Send code</button>
+      <p class="text-center mt-4"><button type="button" class="text-sm font-semibold text-muted hover:text-brand" data-lm-goto="login">Back to log in</button></p>
+    </form>
+
+    <form class="lm-pane mt-6" id="lmReset" novalidate>
+      <div class="text-center">
+        <h3 class="font-head font-extrabold text-2xl">Set a new password</h3>
+        <p class="text-muted mt-1.5 text-[15px]">Use at least 6 characters.</p>
+      </div>
+      <div class="space-y-4 mt-6">
+        <div class="field"><div class="ic-wrap"><i class="fa-solid fa-lock f-ic"></i><input required type="password" minlength="6" placeholder="New password" autocomplete="new-password" class="!pr-14" aria-label="New password" /><button type="button" class="pw-toggle lm-eye" aria-label="Show password"><i class="fa-regular fa-eye"></i></button></div></div>
+        <div class="field"><div class="ic-wrap"><i class="fa-solid fa-lock f-ic"></i><input required type="password" minlength="6" placeholder="Confirm new password" autocomplete="new-password" class="!pr-14" aria-label="Confirm new password" /><button type="button" class="pw-toggle lm-eye" aria-label="Show password"><i class="fa-regular fa-eye"></i></button></div></div>
+      </div>
+      <p class="lm-err hidden mt-3 text-sm font-semibold text-red-500"><i class="fa-solid fa-circle-exclamation"></i> Passwords must match and be at least 6 characters.</p>
+      <button type="submit" class="btn btn-primary w-full !py-4 text-lg mt-5">Update password</button>
     </form>
 
     <div class="lm-pane text-center py-4" id="lmDone">

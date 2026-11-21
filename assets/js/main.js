@@ -807,7 +807,7 @@
     let lastFocus = null;
     const showPane = (name) => {
       $$('.lm-pane', lm).forEach(p => p.classList.toggle('active', p.id === 'lm' + name[0].toUpperCase() + name.slice(1)));
-      tabsEl.classList.toggle('hidden', name === 'done');
+      tabsEl.classList.toggle('hidden', ['done', 'otp', 'forgot', 'reset'].includes(name));
       tabsEl.classList.toggle('reg', name === 'register');
       $$('button', tabsEl).forEach(b => b.classList.toggle('active', b.dataset.lmTab === name));
       $$('.lm-err', lm).forEach(e => e.classList.add('hidden'));
@@ -856,7 +856,107 @@
       }, 900);
     });
     submitLm($('#lmLogin'), 'Welcome back!', "You're logged in. Pick up where you left off.");
-    submitLm($('#lmRegister'), "You're all set!", 'Your free FinCoach account is ready.');
+
+    // Create account → OTP (6 digits, 3-minute resend) → done
+    const reg = $('#lmRegister'), otp = $('#lmOtp');
+    if (reg && otp) {
+      const boxes = $$('#lmOtpBoxes input', otp), resend = $('#lmResend'), resendT = $('#lmResendT');
+      let timer = null;
+      const startResend = () => {
+        let left = 180;
+        clearInterval(timer);
+        resend.disabled = true;
+        resend.innerHTML = 'Resend in <span id="lmResendT">3:00</span>';
+        timer = setInterval(() => {
+          left--;
+          const t = $('#lmResendT');
+          if (t) t.textContent = Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0');
+          if (left <= 0) { clearInterval(timer); resend.disabled = false; resend.textContent = 'Resend code'; }
+        }, 1000);
+      };
+      let otpFor = 'register';   // 'register' → account ready, 'forgot' → set a new password
+      const goOtp = (phone, mode = 'register') => {
+        otpFor = mode;
+        $('[data-lm-goto]', otp).dataset.lmGoto = mode;
+        $('#lmOtpPhone').textContent = phone ? '+880 ' + phone : 'your mobile';
+        boxes.forEach(b => { b.value = ''; b.classList.remove('filled'); });
+        showPane('otp');
+        startResend();
+        setTimeout(() => boxes[0].focus(), 60);
+      };
+      reg.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const ok = $$('input[required]', reg).every(i => i.type === 'checkbox' ? i.checked : i.value.trim() && i.checkValidity());
+        $('.lm-err', reg).classList.toggle('hidden', ok);
+        if (!ok) return;
+        const btn = $('button[type=submit]', reg), label = btn.innerHTML;
+        btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending code…';
+        setTimeout(() => { btn.disabled = false; btn.innerHTML = label; goOtp($('input[type=tel]', reg).value); }, 800);
+      });
+      boxes.forEach((b, i) => {
+        b.addEventListener('input', () => {
+          b.value = b.value.replace(/\D/g, '').slice(0, 1);
+          b.classList.toggle('filled', !!b.value);
+          if (b.value && boxes[i + 1]) boxes[i + 1].focus();
+        });
+        b.addEventListener('keydown', (e) => { if (e.key === 'Backspace' && !b.value && boxes[i - 1]) boxes[i - 1].focus(); });
+        b.addEventListener('paste', (e) => {
+          const d = (e.clipboardData.getData('text') || '').replace(/\D/g, '').slice(0, 6);
+          if (!d) return;
+          e.preventDefault();
+          boxes.forEach((x, k) => { x.value = d[k] || ''; x.classList.toggle('filled', !!x.value); });
+          (boxes[d.length] || boxes[5]).focus();
+        });
+      });
+      resend.addEventListener('click', startResend);
+      // "Forgot password?", "Back to log in", "Change number"
+      lm.addEventListener('click', (e) => {
+        const b = e.target.closest('[data-lm-goto]');
+        if (!b) return;
+        clearInterval(timer);
+        showPane(b.dataset.lmGoto);
+        const f = $('.lm-pane.active input', lm); if (f) f.focus();
+      });
+      const forgot = $('#lmForgot'), resetF = $('#lmReset');
+      if (forgot) forgot.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const tel = $('input[type=tel]', forgot), ok = /^1\d{9}$/.test(tel.value) || /^01\d{9}$/.test(tel.value);
+        $('.lm-err', forgot).classList.toggle('hidden', ok);
+        if (!ok) return;
+        const btn = $('button[type=submit]', forgot), label = btn.innerHTML;
+        btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending code…';
+        setTimeout(() => { btn.disabled = false; btn.innerHTML = label; goOtp(tel.value.replace(/^0/, ''), 'forgot'); }, 800);
+      });
+      if (resetF) resetF.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const [p1, p2] = $$('input', resetF), ok = p1.value.length >= 6 && p1.value === p2.value;
+        $('.lm-err', resetF).classList.toggle('hidden', ok);
+        if (!ok) return;
+        const btn = $('button[type=submit]', resetF), label = btn.innerHTML;
+        btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Please wait…';
+        setTimeout(() => {
+          btn.disabled = false; btn.innerHTML = label; resetF.reset(); if (forgot) forgot.reset();
+          $('#lmDoneTitle').textContent = 'Password updated!'; $('#lmDoneSub').textContent = 'You can now log in with your new password.';
+          showPane('done');
+        }, 800);
+      });
+      otp.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const ok = boxes.every(b => /\d/.test(b.value));
+        $('.lm-err', otp).classList.toggle('hidden', ok);
+        if (!ok) return;
+        const btn = $('button[type=submit]', otp), label = btn.innerHTML;
+        btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Please wait…';
+        setTimeout(() => {
+          clearInterval(timer);
+          btn.disabled = false; btn.innerHTML = label;
+          if (otpFor === 'forgot') { showPane('reset'); const f = $('#lmReset input'); if (f) f.focus(); return; }
+          reg.reset();
+          $('#lmDoneTitle').textContent = "You're all set!"; $('#lmDoneSub').textContent = 'Your free FinCoach account is ready.';
+          showPane('done');
+        }, 800);
+      });
+    }
   }
 
   /* ---------- Hero scroll effect: laptop flattens, phone & card drift ---------- */
