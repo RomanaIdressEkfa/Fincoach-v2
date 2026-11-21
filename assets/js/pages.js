@@ -165,17 +165,22 @@
       const card = (o, best) => {
         const rateTxt = o.rate != null ? o.rate.toFixed(2) + '%' : esc(L.rate);
         const emi = o.rate != null ? '৳' + money(emiOf(o.rate)) : '—';
-        return `<article class="of-card ${best ? 'of-best' : ''}">
-          ${best ? '<span class="of-ribbon"><i class="fa-solid fa-crown"></i> Best offer for you</span>' : ''}
-          <div class="of-head"><span class="of-logo"><img src="${o.logo}" alt="" /></span><div><p class="of-name">${o.name}</p></div></div>
-          <div class="of-rate"><b>${rateTxt}</b>${o.rate != null ? '<span>p.a.</span>' : ''}</div>
-          <div class="of-meta"><div><small>Monthly EMI</small><b>${emi}</b></div><div><small>Processing fee</small><b>${o.fee}</b></div></div>
-          <div class="of-foot"><a href="apply.html?type=${L.apply}" class="btn ${best ? 'btn-white' : 'btn-primary'} !py-2.5 !px-5 text-sm">Apply${best ? ' now' : ''}</a></div>
+        if (best) return `<article class="of-feat">
+          <div class="of-feat-bank"><span class="of-logo"><img src="${o.logo}" alt="" /></span><div><span class="of-tag"><i class="fa-solid fa-crown"></i> Best offer</span><p class="of-name">${o.name}</p></div></div>
+          <div class="of-feat-rate"><b>${rateTxt}</b>${o.rate != null ? '<small>p.a.</small>' : ''}</div>
+          <div class="of-feat-meta"><span><small>Monthly EMI</small><b>${emi}</b></span><span><small>Processing fee</small><b>${o.fee}</b></span></div>
+          <a href="apply.html?type=${L.apply}" class="btn btn-primary of-feat-btn">Apply now</a>
+        </article>`;
+        return `<article class="of-mini-card">
+          <div class="of-mini-top"><span class="of-logo"><img src="${o.logo}" alt="" /></span><p class="of-name">${o.name}</p></div>
+          <p class="of-mini-rate">${rateTxt}${o.rate != null ? '<small> p.a.</small>' : ''}</p>
+          <p class="of-mini-meta">EMI <b>${emi}</b> · Fee <b>${o.fee}</b></p>
+          <a href="apply.html?type=${L.apply}" class="of-mini-btn">Apply</a>
         </article>`;
       };
       const draw = (by) => {
         const list = [...offers].sort((a, b) => by === 'fee' ? a.feeN - b.feeN || (a.rate || 0) - (b.rate || 0) : (a.rate || 0) - (b.rate || 0) || a.feeN - b.feeN);
-        og.innerHTML = list.map((o, i) => card(o, i === 0)).join('');
+        og.innerHTML = card(list[0], true) + '<div class="of-minis">' + list.slice(1).map((o) => card(o, false)).join('') + '</div>';
       };
       $$('.of-sort button').forEach((b) => b.addEventListener('click', () => { $$('.of-sort button').forEach((x) => x.classList.toggle('active', x === b)); draw(b.dataset.sort); }));
       draw('rate');

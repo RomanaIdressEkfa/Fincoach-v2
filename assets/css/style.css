@@ -4798,3 +4798,82 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
 /* Track — "Find your application" box title */
 html body:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5) main h2.tr-find-h.font-head.font-extrabold { font-size: 1.4rem !important; line-height: 1.25 !important; }
 @media (max-width: 767px) { html body:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5) main h2.tr-find-h.font-head.font-extrabold { font-size: 1.25rem !important; } }
+
+/* ==========================================================
+   Loan — offers as a clean comparison list (one row per lender)
+   ========================================================== */
+.of-list { display: grid; gap: .75rem; }
+.of-row { display: grid; grid-template-columns: minmax(0, 1.7fr) repeat(3, minmax(0, 1fr)) auto; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem; border-radius: 18px; background: #fff; border: 1px solid var(--line); transition: border-color .2s; }
+.of-row:hover { border-color: #f5c2d2; }
+.of-row.is-best { border: 1.5px solid var(--brand); background: #fff8fb; }
+.of-bank { display: flex; align-items: center; gap: .85rem; min-width: 0; }
+.of-bank .of-name { font-size: 1.02rem; }
+.of-tag { display: inline-block; margin-top: .3rem; padding: .15rem .55rem; border-radius: 99px; font-size: .7rem; font-weight: 600; color: #fff; background: var(--brand); }
+.of-col small { display: block; font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.of-col b { display: block; margin-top: .2rem; font-family: "Urbanist", sans-serif; font-weight: 600; font-size: 1.1rem; color: var(--ink); }
+.of-col b.of-rate-v { color: var(--brand); font-size: 1.25rem; }
+.of-apply { padding: .65rem 1.5rem !important; font-size: .9rem; }
+@media (max-width: 767px) {
+  .of-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem .6rem; padding: 1rem; }
+  .of-bank { grid-column: 1 / -1; }
+  .of-apply { grid-column: 1 / -1; width: 100%; justify-content: center; }
+  .of-col b { font-size: 1rem; }
+  .of-col b.of-rate-v { font-size: 1.1rem; }
+}
+@media (max-width: 767px) {
+  .of-col small { font-size: .6rem; letter-spacing: .02em; white-space: nowrap; }
+}
+
+/* ==========================================================
+   Loan — offers: featured best offer + compact lender cards
+   ========================================================== */
+.of-list { display: grid; gap: 1rem; }
+.of-feat { display: grid; grid-template-columns: minmax(0, 1.4fr) auto minmax(0, 1.3fr) auto; align-items: center; gap: 1.5rem 2rem;
+  padding: 1.6rem 1.9rem; border-radius: 26px; border: 1px solid #f6cfdc;
+  background: linear-gradient(120deg, #fff 0%, #fff4f8 55%, #ffe8f0 100%); }
+.of-feat-bank { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+.of-feat-bank .of-logo { width: 84px; height: 54px; border-radius: 14px; }
+.of-feat-bank .of-name { margin-top: .35rem; font-size: 1.3rem; }
+.of-tag { display: inline-flex; align-items: center; gap: .35rem; padding: .22rem .65rem; border-radius: 99px; font-size: .72rem; font-weight: 600; color: #fff; background: var(--brand); }
+.of-tag i { font-size: .65rem; }
+.of-feat-rate { display: flex; align-items: baseline; gap: .35rem; }
+.of-feat-rate b { font-family: "Urbanist", sans-serif; font-weight: 600; font-size: 3rem; line-height: 1; letter-spacing: -.03em; color: var(--brand); }
+.of-feat-rate small { font-size: .85rem; font-weight: 600; color: var(--muted); }
+.of-feat-meta { display: flex; gap: .6rem; }
+.of-feat-meta span { flex: 1; padding: .7rem .9rem; border-radius: 14px; background: #fff; border: 1px solid #f3e3ea; }
+.of-feat-meta small, .of-mini-meta { font-size: .72rem; font-weight: 600; color: var(--muted); }
+.of-feat-meta small { display: block; text-transform: uppercase; letter-spacing: .04em; }
+.of-feat-meta b { display: block; margin-top: .15rem; font-family: "Urbanist", sans-serif; font-weight: 600; font-size: 1.15rem; color: var(--ink); }
+.of-feat-btn { padding: .9rem 1.8rem !important; }
+
+.of-minis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.of-mini-card { display: flex; flex-direction: column; padding: 1.2rem; border-radius: 22px; background: #fff; border: 1px solid var(--line); transition: border-color .25s, transform .25s; }
+.of-mini-card:hover { border-color: #f5c2d2; transform: translateY(-3px); }
+.of-mini-top { display: flex; align-items: center; gap: .7rem; min-width: 0; }
+.of-mini-top .of-logo { width: 56px; height: 38px; border-radius: 10px; padding: 4px 6px; }
+.of-mini-top .of-name { font-size: .98rem; }
+.of-mini-rate { margin-top: 1.1rem; font-family: "Urbanist", sans-serif; font-weight: 600; font-size: 2rem; line-height: 1; letter-spacing: -.02em; color: var(--brand); }
+.of-mini-rate small { font-size: .75rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.of-mini-meta { margin-top: .55rem; font-size: .85rem; }
+.of-mini-meta b { color: var(--ink); font-weight: 600; }
+.of-mini-btn { margin-top: 1.1rem; display: block; text-align: center; padding: .6rem; border-radius: 99px; font-weight: 600; font-size: .9rem; color: var(--brand); border: 1.5px solid #f5c2d2; transition: all .2s; }
+.of-mini-btn:hover { color: #fff; background: var(--brand); border-color: var(--brand); }
+
+@media (max-width: 1023px) {
+  .of-feat { grid-template-columns: 1fr auto; }
+  .of-feat-meta { grid-column: 1 / -1; }
+  .of-feat-btn { grid-column: 1 / -1; width: 100%; justify-content: center; }
+  .of-minis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .of-feat { padding: 1.2rem; gap: 1rem; border-radius: 22px; }
+  .of-feat-bank .of-logo { width: 64px; height: 42px; }
+  .of-feat-bank .of-name { font-size: 1.1rem; }
+  .of-feat-rate b { font-size: 2.2rem; }
+  .of-minis { gap: .65rem; }
+  .of-mini-card { padding: .95rem; border-radius: 18px; }
+  .of-mini-top { flex-direction: column; align-items: flex-start; gap: .5rem; }
+  .of-mini-rate { margin-top: .8rem; font-size: 1.6rem; }
+  .of-mini-meta { font-size: .78rem; }
+}
