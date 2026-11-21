@@ -120,7 +120,7 @@
     const img = $('[data-l-img]'); img.src = IMG(L.img); img.alt = L.name;
     $$('[data-l-apply]').forEach((a) => { a.href = `apply.html?type=${L.apply}`; });
     $('#lpFeatures').innerHTML = L.features.map(([i, t, d], n) => `
-      <div class="reveal lp2-feat"><span class="lp2-feat-ic"><i class="fa-solid ${i}"></i></span><h3>${t}</h3><p>${d}</p></div>`).join('');
+      <div class="reveal lp2-feat"><span class="lp2-feat-ic"><i class="fa-solid ${i}"></i></span><h3>${t}</h3></div>`).join('');
     // Eligibility checker (tick items, ring fills)
     const eligEl = $('#lpElig');
     eligEl.innerHTML = L.elig.map((s) => `<li><button type="button" class="el2-item" aria-pressed="false"><span class="el2-box"><i class="fa-solid fa-check"></i></span>${esc(s)}</button></li>`).join('');
