@@ -4669,3 +4669,14 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
   html body.home:not(#x1):not(#x2) main h2 { font-size: 28px !important; line-height: 1.2 !important; letter-spacing: -0.02em; }
   html body.home:not(#x1):not(#x2) #hero .hs-text h1 { font-size: 34px !important; line-height: 1.12 !important; }
 }
+/* Home — phones: smaller step numbers (01, 02, 03) */
+@media (max-width: 767px) {
+  html body.home:not(#x1):not(#x2) .hw-num { font-size: 1.6rem !important; }
+}
+/* Home — phones: smaller EMI result numbers */
+@media (max-width: 767px) {
+  html body.home:not(#x1):not(#x2) .emi2-big { font-size: 28px !important; line-height: 1.1 !important; }
+  html body.home:not(#x1):not(#x2) .emi2-big #emi { font-size: 28px !important; }
+  html body.home:not(#x1):not(#x2) .emi2-big small { font-size: 16px !important; }
+  html body.home:not(#x1):not(#x2) #emiPct { font-size: 22px !important; }
+}
