@@ -4780,3 +4780,8 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
 @media (min-width: 768px) {
   html body.home:not(#x1):not(#x2):not(#x3) #hero .hs-text h1 { font-size: 3.4rem !important; }
 }
+/* Contact page — tablet & desktop: smaller headings */
+@media (min-width: 768px) {
+  html body.pg-contact:not(#x1):not(#x2):not(#x3) main h1 { font-size: 2.6rem !important; line-height: 1.15 !important; }
+  html body.pg-contact:not(#x1):not(#x2):not(#x3) main h2.ct8-form-h { font-size: 1.9rem !important; }
+}
