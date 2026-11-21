@@ -4680,3 +4680,63 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
   html body.home:not(#x1):not(#x2) .emi2-big small { font-size: 16px !important; }
   html body.home:not(#x1):not(#x2) #emiPct { font-size: 22px !important; }
 }
+
+/* ==========================================================
+   All inner pages — phones: same feel as the home page
+   (headings, spacing, photos and big numbers sized for a phone)
+   ========================================================== */
+@media (max-width: 767px) {
+  /* headings */
+  html body.wnav:not(.home):not(#x1):not(#x2) main h1 { font-size: 32px !important; line-height: 1.12 !important; letter-spacing: -0.02em; }
+  html body.wnav:not(.home):not(#x1):not(#x2) main h1 span { font-size: inherit !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) main h2 { font-size: 26px !important; line-height: 1.2 !important; letter-spacing: -0.02em; }
+  /* article / legal sub-headings (privacy, terms, blog post) */
+  html body.wnav:not(.home):not(#x1):not(#x2) main h2[id] { font-size: 21px !important; line-height: 1.25 !important; }
+
+  /* even 32px spacing between sections */
+  body.wnav:not(.home) main > section:not(:first-of-type)[class*="pt-1"],
+  body.wnav:not(.home) main > section:not(:first-of-type)[class*="pt-2"] { padding-top: 32px !important; }
+  body.wnav:not(.home) main > section[class*="pb-1"],
+  body.wnav:not(.home) main > section[class*="pb-2"] { padding-bottom: 32px !important; }
+
+  /* big numbers */
+  html body.wnav:not(.home):not(#x1):not(#x2) #emi { font-size: 28px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .emi2-big { font-size: 28px !important; line-height: 1.1 !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .emi2-big small { font-size: 16px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) #emiPct { font-size: 22px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) #sumEmi { font-size: 28px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .of-rate b { font-size: 26px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .of-best .of-rate b { font-size: 40px !important; }
+
+  /* About: photo, vision/mission cards, stats, promise cards */
+  .ab10-photo { min-height: 0 !important; aspect-ratio: 4 / 3; }
+  .ab10-card-in { min-height: 156px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .ab10-stats :is(b, strong, span) { font-size: 26px !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .ab10-stats :is(b, strong, span) :is(sup, small) { font-size: 14px !important; }
+  .ab8-val { padding: 1.25rem 1.25rem 1.2rem !important; }
+  html body.wnav:not(.home):not(#x1):not(#x2) .ab8-val-n { font-size: 28px !important; top: .8rem; right: 1rem; }
+
+  /* Blog: featured image not taller than the screen */
+  .bg2-feat-img { min-height: 0 !important; aspect-ratio: 16 / 10; }
+  .bg2-feat-img img { height: 100%; }
+}
+@media (max-width: 767px) {
+  html body.wnav:not(.home):not(#x1):not(#x2) main .ab10-card-in h2 { font-size: 22px !important; }
+}
+/* Blog — featured post: photo fills its half, card height follows the text (no giant image) */
+.bg2-feat-img { position: relative; min-height: 0; aspect-ratio: 16 / 10; }
+.bg2-feat-img img { position: absolute; inset: 0; width: 100%; height: 100%; }
+@media (min-width: 1024px) { .bg2-feat-img { aspect-ratio: auto; min-height: 340px; } }
+/* All inner pages — tablet & desktop: 48px between sections (same as the home page) */
+@media (min-width: 768px) {
+  body.wnav:not(.home) main > section:not(:first-of-type)[class*="pt-1"],
+  body.wnav:not(.home) main > section:not(:first-of-type)[class*="pt-2"] { padding-top: 48px !important; }
+  body.wnav:not(.home) main > section[class*="pb-1"],
+  body.wnav:not(.home) main > section[class*="pb-2"] { padding-bottom: 48px !important; }
+  body.wnav:not(.home) main section [class*="md:py-16"] { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+  body.wnav:not(.home) main section [class*="md:py-20"], body.wnav:not(.home) main section [class*="md:py-24"] { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+}
+/* phones: big boxed sections get less inside padding */
+@media (max-width: 767px) {
+  body.wnav:not(.home) main section [class*="py-12"], body.wnav:not(.home) main section [class*="py-16"] { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+}

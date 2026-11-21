@@ -177,20 +177,12 @@
     <span class="ab5-dots"></span><span class="ab5-glow"></span>
     <div class="relative max-w-[920px] mx-auto px-4 md:px-6 pt-12 md:pt-16 pb-16 md:pb-20 text-center">
       <nav class="crumb justify-center" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span class="text-brand">FAQs</span></nav>
-      <div class="mt-6"><span class="ab5-kicker justify-center"><span></span>Help centre<span></span></span></div>
+
       <h1 class="ab5-h1 mt-4">How can we <span class="text-grad">help you?</span></h1>
       
       <div class="fq2-search mt-8">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input id="faqSearch" type="search" placeholder="Search e.g. documents, fees, OTP" aria-label="Search FAQs" />
-        <kbd>Ctrl K</kbd>
-      </div>
-      <div class="fq2-pop mt-4">
-        <span>Popular:</span>
-        <button type="button" data-q="documents">Documents</button>
-        <button type="button" data-q="credit score">Credit score</button>
-        <button type="button" data-q="track">Tracking</button>
-        <button type="button" data-q="fee">Fees</button>
       </div>
     </div>
   </div>
@@ -202,12 +194,12 @@
 <section class="pt-12 md:pt-16">
   <div class="max-w-site mx-auto px-4 md:px-6">
     <div class="fq2-topics" id="faqCats">
-      <button type="button" class="chip fq2-topic active" data-cat="all"><i class="fa-solid fa-border-all"></i><b>All questions</b><small>12 answers</small></button>
-      <button type="button" class="chip fq2-topic" data-cat="general"><i class="fa-solid fa-circle-info"></i><b>About FinCoach</b><small>3 answers</small></button>
-      <button type="button" class="chip fq2-topic" data-cat="apply"><i class="fa-solid fa-file-pen"></i><b>Applying</b><small>3 answers</small></button>
-      <button type="button" class="chip fq2-topic" data-cat="docs"><i class="fa-regular fa-folder-open"></i><b>Documents</b><small>2 answers</small></button>
-      <button type="button" class="chip fq2-topic" data-cat="track"><i class="fa-solid fa-location-crosshairs"></i><b>Tracking</b><small>2 answers</small></button>
-      <button type="button" class="chip fq2-topic" data-cat="safety"><i class="fa-solid fa-shield-halved"></i><b>Safety &amp; privacy</b><small>2 answers</small></button>
+      <button type="button" class="chip fq2-topic active" data-cat="all"><i class="fa-solid fa-border-all"></i><b>All questions</b></button>
+      <button type="button" class="chip fq2-topic" data-cat="general"><i class="fa-solid fa-circle-info"></i><b>About FinCoach</b></button>
+      <button type="button" class="chip fq2-topic" data-cat="apply"><i class="fa-solid fa-file-pen"></i><b>Applying</b></button>
+      <button type="button" class="chip fq2-topic" data-cat="docs"><i class="fa-regular fa-folder-open"></i><b>Documents</b></button>
+      <button type="button" class="chip fq2-topic" data-cat="track"><i class="fa-solid fa-location-crosshairs"></i><b>Tracking</b></button>
+      <button type="button" class="chip fq2-topic" data-cat="safety"><i class="fa-solid fa-shield-halved"></i><b>Safety &amp; privacy</b></button>
     </div>
   </div>
 </section>
@@ -217,10 +209,9 @@
      ========================================================= -->
 <section class="pt-10 md:pt-12 pb-16 md:pb-24">
   <div class="max-w-site mx-auto px-4 md:px-6 grid lg:grid-cols-12 gap-8 lg:gap-12">
-    <div class="lg:col-span-8">
+    <div class="lg:col-span-12">
       <div class="flex items-center justify-between gap-4 mb-5">
         <h2 class="font-head font-extrabold text-2xl" id="faqHeading">All questions</h2>
-        <span class="fq2-count"><b id="faqShown">12</b> results</span>
       </div>
       <div id="faqAll">
         <div id="faqList" class="space-y-3">
@@ -246,21 +237,6 @@
       </div>
     </div>
 
-    <aside class="lg:col-span-4">
-      <div class="lg:sticky lg:top-32 space-y-4">
-        <div class="lp2-help">
-          <span class="lp2-help-ic"><i class="fa-solid fa-headset"></i></span>
-          <p class="font-head font-extrabold text-xl mt-4">Still need help?</p>
-          
-          <div class="grid gap-2 mt-5">
-            <a href="tel:+8809638229922" class="fq2-contact"><i class="fa-solid fa-phone"></i><span><b>Call us</b><small>+880 9638 229922</small></span></a>
-            <a href="mailto:info@fincoachbd.com" class="fq2-contact"><i class="fa-regular fa-envelope"></i><span><b>Email us</b><small>info@fincoachbd.com</small></span></a>
-            <a href="contact.html" class="fq2-contact"><i class="fa-regular fa-message"></i><span><b>Send an inquiry</b><small>Contact form</small></span></a>
-          </div>
-        </div>
-        <div class="ct5-safe"><i class="fa-solid fa-shield-halved"></i><p><b>Stay safe:</b> FinCoach never asks for money, processing fees or OTPs.</p></div>
-      </div>
-    </aside>
   </div>
 </section>
 
@@ -270,7 +246,6 @@
     <div class="relative max-w-site mx-auto px-4 md:px-6 py-14 md:py-16 flex flex-col lg:flex-row lg:items-center justify-between gap-8 text-white">
       <div>
         <h2 class="font-head font-extrabold text-[2rem] md:text-[2.8rem] leading-[1.08]">Ready to find your loan?</h2>
-        <p class="mt-3 text-lg text-white/85">Compare offers from 6+ banks, free.</p>
       </div>
       <a href="apply.html" class="btn btn-white !px-8 !py-4 self-start lg:self-auto">Check your offers</a>
     </div>
