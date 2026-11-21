@@ -4776,3 +4776,7 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
   html body:not(#x1):not(#x2) main :is(.ab5-h2, .w-h2, .ab8-statement) span,
   html body.home:not(#x1):not(#x2) main h2 span { font-size: inherit !important; }
 }
+/* Home hero headline only: 3.4rem on tablet & desktop */
+@media (min-width: 768px) {
+  html body.home:not(#x1):not(#x2):not(#x3) #hero .hs-text h1 { font-size: 3.4rem !important; }
+}
