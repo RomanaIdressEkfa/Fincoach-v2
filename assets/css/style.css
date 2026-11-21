@@ -4785,3 +4785,16 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
   html body.pg-contact:not(#x1):not(#x2):not(#x3) main h1 { font-size: 2.6rem !important; line-height: 1.15 !important; }
   html body.pg-contact:not(#x1):not(#x2):not(#x3) main h2.ct8-form-h { font-size: 1.9rem !important; }
 }
+/* All pages — tablet & desktop: headings one step smaller (home hero headline keeps 3.4rem) */
+@media (min-width: 768px) {
+  html body:not(#x1):not(#x2):not(#x3) main h1 { font-size: 2.6rem !important; line-height: 1.15 !important; }
+  html body.home:not(#x1):not(#x2):not(#x3) #hero .hs-text h1 { font-size: 3.4rem !important; }
+  html body:not(#x1):not(#x2):not(#x3) main :is(.ab5-h2, .w-h2, .ab8-statement),
+  html body.home:not(#x1):not(#x2):not(#x3) main h2,
+  html body:not(#x1):not(#x2):not(#x3) main .ab8-cta h2 { font-size: 2.1rem !important; line-height: 1.18 !important; }
+  html body:not(.home):not(#x1):not(#x2):not(#x3) main h2.font-head:not(#faqHeading):not(.ab5-h2),
+  html body.pg-contact:not(#x1):not(#x2):not(#x3) main h2.ct8-form-h { font-size: 1.8rem !important; line-height: 1.2 !important; }
+}
+/* Track — "Find your application" box title */
+html body:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5) main h2.tr-find-h.font-head.font-extrabold { font-size: 1.4rem !important; line-height: 1.25 !important; }
+@media (max-width: 767px) { html body:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5) main h2.tr-find-h.font-head.font-extrabold { font-size: 1.25rem !important; } }
