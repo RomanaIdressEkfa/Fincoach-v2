@@ -4744,3 +4744,10 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
 @media (min-width: 768px) { .bg2-news { padding: 2rem 2.5rem; } }
 .bg2-news h2 { margin: 0; }
 .bg2-news .bg2-nl { margin: 0; }
+/* FAQ — phones: compact topic tiles (icon and label on one line) */
+@media (max-width: 767px) {
+  .fq2-topics { gap: .5rem; }
+  .fq2-topic.chip { flex-direction: row; align-items: center; gap: .55rem; padding: .7rem .8rem; border-radius: 14px; }
+  .fq2-topic i { width: auto; height: auto; margin: 0; font-size: .9rem; }
+  .fq2-topic b { font-size: .92rem; line-height: 1.2; }
+}
