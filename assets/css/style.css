@@ -4629,3 +4629,43 @@ main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }
   .phero .lp2-step-n { width: 22px; height: 22px; font-size: .7rem; margin-left: 14px; }
   .phero .lp2-step h3 { margin-top: .8rem; font-size: .95rem; line-height: 1.25; }
 }
+
+/* ==========================================================
+   Home — phones: tighter, even spacing (no big empty gaps)
+   ========================================================== */
+@media (max-width: 767px) {
+  .home main > section:not(#hero),
+  .home main > section:not(#hero):has(.ab5-pledge),
+  .home main > section:not(#hero):has(.ap3),
+  .home main > section:not(#hero):has(.tw4) { padding-top: 32px !important; }
+  .home main > section#blog { padding-bottom: 32px !important; }
+  /* hero: CTA row closer to the text */
+  .home #hero .hs-grid .mt-8 { margin-top: 1.5rem; }
+  /* products: no extra space under the cards */
+  .home #products { padding-bottom: 0 !important; }
+  .home #products .sc-wrap { margin-bottom: 0; }
+  /* how it works panel */
+  .home .hw > div.relative { padding-top: 2rem; padding-bottom: 2rem; }
+  .home .hw-steps { margin-top: 2rem; }
+  /* app section: mockup area fits the phone */
+  .home .ap3-visual { height: 400px; }
+  .home .ap3 { padding-top: 0; padding-bottom: 0; }
+  /* testimonials: visible quote mark, no empty box, shorter photo area */
+  .home .tw4-q { width: auto; height: auto; display: block; font-size: 1.6rem; line-height: 1; color: var(--brand) !important; }
+  .home .tw4-text .tw-stack { margin-top: .75rem; }
+  .home .tw4-text { padding-bottom: .5rem; }
+  .home .tw4-media { min-height: 0; padding-top: .5rem; padding-bottom: 1.25rem; }
+}
+/* Home — phones: partner logos smaller and closer together */
+@media (max-width: 767px) {
+  .home .hs-logos { padding: 1rem 1rem 1.1rem; }
+  .home .hs-logos .marquee { margin-top: .6rem; }
+  .home #marqueeTrack { gap: 24px; }
+  .home #marqueeTrack img { height: 28px; width: auto; }
+  .home #hero .hs { padding-bottom: 130px !important; }
+}
+/* Home — phones: section headings 28px (hero headline stays the largest) */
+@media (max-width: 767px) {
+  html body.home:not(#x1):not(#x2) main h2 { font-size: 28px !important; line-height: 1.2 !important; letter-spacing: -0.02em; }
+  html body.home:not(#x1):not(#x2) #hero .hs-text h1 { font-size: 34px !important; line-height: 1.12 !important; }
+}
