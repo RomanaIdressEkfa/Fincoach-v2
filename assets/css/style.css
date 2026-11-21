@@ -4877,3 +4877,5 @@ html body:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5) main h2.tr-find-h.font-he
   .of-mini-rate { margin-top: .8rem; font-size: 1.6rem; }
   .of-mini-meta { font-size: .78rem; }
 }
+/* Loan eligibility: hide the hint box until every point is ticked (then it shows the success message) */
+#elResult:not(.is-ok) { display: none !important; }

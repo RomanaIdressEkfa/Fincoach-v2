@@ -167,13 +167,13 @@
         const emi = o.rate != null ? '৳' + money(emiOf(o.rate)) : '—';
         if (best) return `<article class="of-feat">
           <div class="of-feat-bank"><span class="of-logo"><img src="${o.logo}" alt="" /></span><div><span class="of-tag"><i class="fa-solid fa-crown"></i> Best offer</span><p class="of-name">${o.name}</p></div></div>
-          <div class="of-feat-rate"><b>${rateTxt}</b>${o.rate != null ? '<small>p.a.</small>' : ''}</div>
+          <div class="of-feat-rate"><b>${rateTxt}</b></div>
           <div class="of-feat-meta"><span><small>Monthly EMI</small><b>${emi}</b></span><span><small>Processing fee</small><b>${o.fee}</b></span></div>
           <a href="apply.html?type=${L.apply}" class="btn btn-primary of-feat-btn">Apply now</a>
         </article>`;
         return `<article class="of-mini-card">
           <div class="of-mini-top"><span class="of-logo"><img src="${o.logo}" alt="" /></span><p class="of-name">${o.name}</p></div>
-          <p class="of-mini-rate">${rateTxt}${o.rate != null ? '<small> p.a.</small>' : ''}</p>
+          <p class="of-mini-rate">${rateTxt}</p>
           <p class="of-mini-meta">EMI <b>${emi}</b> · Fee <b>${o.fee}</b></p>
           <a href="apply.html?type=${L.apply}" class="of-mini-btn">Apply</a>
         </article>`;
