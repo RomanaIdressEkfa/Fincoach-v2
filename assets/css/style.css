@@ -4513,3 +4513,57 @@ main:has(.ab10-hero) > section:last-of-type { padding-bottom: 48px !important; }
 #lmOtp .otp input { height: 54px; font-size: 1.4rem; }
 #lmForgot button[type=submit], #lmReset button[type=submit] { background: #e9ecf1 !important; color: var(--ink) !important; box-shadow: none !important; transform: none !important; }
 #lmForgot button[type=submit]:hover, #lmReset button[type=submit]:hover { background: #dfe3ea !important; }
+
+/* Apply — cleaner side panel: no debt-to-income box */
+.ap5-side .ap5-dti { display: none !important; }
+.faq.acc, .faq.acc.open, .faq.acc:hover { box-shadow: none !important; }
+
+/* All page titles — same as About / Contact (Wallex: 48px, 600, line-height 1.2) */
+.ab5-h1 { font-weight: 600 !important; line-height: 1.15 !important; letter-spacing: -.02em !important; }
+@media (min-width: 1024px) { h1.ab5-h1:not(.ab10-h1) { font-size: 3.2rem !important; } }
+
+/* Track — equal 48px gaps between sections, like the homepage */
+main:has(#trackForm) > section:not(:first-of-type) { padding-bottom: 48px !important; }
+main:has(#trackForm) > #trackResult { padding-bottom: 48px !important; }
+
+/* Track — status guide + CTA boxed to the site width (like the homepage panels),
+   with tighter inner padding */
+main:has(#trackForm) > section.px-2\.5:not(:first-of-type) { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+@media (max-width: 767px) { main:has(#trackForm) > section.px-2\.5:not(:first-of-type) { padding-left: 1rem !important; padding-right: 1rem !important; } }
+main:has(#trackForm) .ab5-pledge, main:has(#trackForm) .tr-cta { border-radius: 28px !important; }
+main:has(#trackForm) .ab5-pledge > .relative { padding: 2.5rem 2rem !important; }
+main:has(#trackForm) .tr-cta > .relative { padding: 2.25rem 2rem !important; }
+@media (min-width: 768px) {
+  main:has(#trackForm) .ab5-pledge > .relative { padding: 3rem 2.75rem !important; }
+  main:has(#trackForm) .tr-cta > .relative { padding: 2.5rem 2.75rem !important; }
+}
+main:has(#trackForm) .tr2-steps { margin-top: 2rem !important; }
+main:has(#trackForm) .tr-cta h2 { font-size: clamp(1.8rem, 3vw, 2.4rem) !important; }
+
+/* Track result — Amount / Tenure / Rate / Lender as white boxes (like homepage How it works) */
+.tr-stat { background: #fff !important; border: 1px solid #e6e9f2 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; color: var(--ink); }
+.tr-stat > i { background: none !important; color: var(--brand) !important; width: auto; height: auto; font-size: 1.05rem; }
+.tr-stat small { color: var(--muted) !important; }
+.tr-stat b { color: var(--ink) !important; }
+.tr-stat .tr-logo { border: 1px solid #eef0f4; }
+.tr-stat b { font-family: "Figtree", sans-serif !important; font-weight: 600 !important; font-size: 1rem !important; }
+
+/* Track result — Activity as a row of cards (homepage How it works style);
+   on phones it becomes a swipe slider that advances on its own */
+.tr-acts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+.tr-act-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: .9rem; min-height: 132px; padding: 1.25rem 1.25rem 1.15rem;
+  border-radius: 20px; background: #f5f7fb; border: 1px solid #e9ecf3; }
+.tr-act-card b { font-family: "Figtree", sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink); line-height: 1.35; }
+.tr-act-ic { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #fff; border: 1px solid #e9ecf3; color: var(--brand); font-size: .9rem; }
+.tr-act-card.is-latest { background: #fff1f5; border-color: #f8cfdc; }
+.tr-act-card.is-latest .tr-act-ic { background: var(--brand); border-color: var(--brand); color: #fff; }
+.tr-act-card .tr-new { position: absolute; top: 1.1rem; right: 1.1rem; }
+@media (max-width: 639px) {
+  .tr-acts { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; margin: 0 -4px; padding: 0 4px 4px; }
+  .tr-acts::-webkit-scrollbar { display: none; }
+  .tr-act-card { flex: 0 0 78%; scroll-snap-align: start; }
+}
+
+/* Loan pages — equal 48px gaps between sections, like the homepage */
+main:has(.ab9-hero) > section + section { padding-top: 48px !important; }
+main:has(.ab9-hero) > section:last-of-type { padding-bottom: 48px !important; }

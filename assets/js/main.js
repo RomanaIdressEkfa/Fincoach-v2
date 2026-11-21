@@ -526,20 +526,15 @@
     const render = (id, d) => {
       const done = d.current >= 5;
       const pct = done ? 100 : Math.round((d.current / 4) * 100);
-      const stepNo = done ? 5 : d.current + 1;
       const statusTxt = done ? 'Disbursed' : STEPS[d.current][1];
       const C = (2 * Math.PI * 52).toFixed(1);
       const stat = (ic, k, v) => `<div class="tr-stat"><i class="fa-solid ${ic}"></i><span><small>${k}</small><b>${v}</b></span></div>`;
       const steps = STEPS.map(([ic, t], i) => {
         const st = i < d.current || done ? 'done' : i === d.current ? 'current' : '';
-        return `<div class="tr-step ${st}"><span class="tr-node"><i class="fa-solid ${st === 'done' ? 'fa-check' : ic}"></i></span><p>${t}</p><small>${d.dates[i]}</small></div>`;
+        return `<div class="tr-step ${st}"><span class="tr-node"><i class="fa-solid ${st === 'done' ? 'fa-check' : ic}"></i></span><p>${t}</p></div>`;
       }).join('');
-      const events = d.activity.map(([ic, t, s, when, latest]) => {
-        return `<div class="tr-ev tr-ev-nodate ${latest ? 'is-latest' : ''}">
-          <div class="tr-rail"><span class="tr-dot"><i class="fa-solid ${ic}"></i></span></div>
-          <div class="tr-box"><p class="font-bold">${t}${latest ? ' <span class="tr-new">Latest</span>' : ''}</p><p class="text-muted text-[15px] mt-0.5">${s}</p></div>
-        </div>`;
-      }).join('');
+      const events = d.activity.map(([ic, t, s, when, latest]) =>
+        `<div class="tr-act-card ${latest ? 'is-latest' : ''}"><span class="tr-act-ic"><i class="fa-solid ${ic}"></i></span><b>${t}</b>${latest ? '<span class="tr-new">Latest</span>' : ''}</div>`).join('');
       const docs = d.docs.map(([t, ok]) => `<div class="tr-doc ${ok ? '' : 'is-pending'}"><span class="tr-doc-ic"><i class="fa-regular ${ok ? 'fa-file-lines' : 'fa-file'}"></i></span><span class="flex-1 font-semibold text-[15px]">${t}</span>${ok ? '<i class="fa-solid fa-circle-check text-green-500"></i>' : '<button type="button" class="tr-upload"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload</button>'}</div>`).join('');
       return `
       <div class="space-y-6">
@@ -555,7 +550,6 @@
                 <span class="tr-ic"><i class="fa-solid ${d.icon}"></i></span>
                 <div>
                   <h3 class="font-head font-extrabold text-[1.9rem] md:text-[2.4rem] leading-tight">${d.product}</h3>
-                  <p class="text-white/65 text-sm mt-1">Applied ${d.applied} · ${d.name} · Updated just now</p>
                 </div>
               </div>
               <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-7">
@@ -569,7 +563,7 @@
                 <circle cx="60" cy="60" r="52" class="tr-ring-bg" />
                 <circle cx="60" cy="60" r="52" class="tr-ring-fg" data-pct="${pct}" stroke-dasharray="0 ${C}" />
               </svg>
-              <div class="tr-ring-txt"><b>${pct}%</b><span>Step ${stepNo} of 5</span></div>
+              <div class="tr-ring-txt"><b>${pct}%</b></div>
             </div>
           </div>
           <div class="tr-steps relative">
@@ -581,9 +575,8 @@
         <div class="result-in tr-card" style="animation-delay:.14s">
           <div class="flex items-center justify-between">
             <h3 class="font-head font-extrabold text-2xl">Activity</h3>
-            <span class="tr-count">${d.activity.length} updates</span>
           </div>
-          <div class="tr-tl mt-7">${events}</div>
+          <div class="tr-acts mt-6">${events}</div>
         </div>
       </div>`;
     };
@@ -618,6 +611,19 @@
             try { await navigator.clipboard.writeText(b.dataset.copy); } catch (_) { /* ignore */ }
             b.innerHTML = '<i class="fa-solid fa-check"></i>'; setTimeout(() => { b.innerHTML = '<i class="fa-regular fa-copy"></i>'; }, 1500);
           }));
+          // Activity cards: on phones they scroll sideways — advance one card every 3s, pause on touch
+          const acts = $('.tr-acts', inner);
+          if (acts && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            clearInterval(window.__trActs);
+            let hold = false;
+            acts.addEventListener('touchstart', () => { hold = true; }, { passive: true });
+            window.__trActs = setInterval(() => {
+              if (hold || document.hidden || !document.body.contains(acts) || acts.scrollWidth <= acts.clientWidth + 4) return;
+              const card = $('.tr-act-card', acts), step = card ? card.offsetWidth + 14 : 240;
+              const end = acts.scrollLeft + acts.clientWidth >= acts.scrollWidth - 4;
+              acts.scrollTo({ left: end ? 0 : acts.scrollLeft + step, behavior: 'smooth' });
+            }, 3000);
+          }
         }, 120);
       }, 1100);
     };
@@ -1186,15 +1192,15 @@
       const FIT = { high: ['el-high', 'fa-circle-check', 'High chance', 92], good: ['el-good', 'fa-thumbs-up', 'Good chance', 74], fair: ['el-fair', 'fa-circle-info', 'Fair chance', 48] };
       $('#resCount').textContent = rows.length;
       $('#resRows').innerHTML = rows.map((x, k) => {
-        const [cls, ic, txt, pct] = FIT[x.fit];
+        const [cls, ic, txt] = FIT[x.fit];
         return '<article class="ap5-offer' + (k === 0 ? ' is-best' : '') + '">' +
           (k === 0 ? '<span class="ap5-best"><i class="fa-solid fa-crown"></i> Best match</span>' : '') +
-          '<div class="ap5-o-lender"><span class="ap5-o-logo"><img src="' + x.logo + '" alt="" /></span><div><b>' + x.name + '</b><small>' + PRODUCT[type] + '</small></div></div>' +
+          '<div class="ap5-o-lender"><span class="ap5-o-logo"><img src="' + x.logo + '" alt="" /></span><div><b>' + x.name + '</b></div></div>' +
           '<div class="ap5-o-cell"><small>Interest rate</small><b class="ap5-o-rate">' + x.rate.toFixed(2) + '%</b></div>' +
           '<div class="ap5-o-cell"><small>Monthly EMI</small><b>৳' + money(x.emi) + '</b></div>' +
           '<div class="ap5-o-cell"><small>Max amount</small><b>৳' + money(x.max) + '</b></div>' +
-          '<div class="ap5-o-cell ap5-o-fit"><small>Approval</small><span class="el-pill ' + cls + '"><i class="fa-solid ' + ic + '"></i> ' + txt + '</span><span class="ap5-o-bar"><i style="width:' + pct + '%"></i></span></div>' +
-          '<div class="ap5-o-cta"><a href="#" data-login-open="register" class="btn ' + (k === 0 ? 'btn-primary' : 'btn-dark') + ' !py-3 !px-6">Apply</a><small>Fee ' + x.fee + ' · ' + x.days + '</small></div>' +
+          '<div class="ap5-o-cell ap5-o-fit"><small>Approval</small><span class="el-pill ' + cls + '"><i class="fa-solid ' + ic + '"></i> ' + txt + '</span></div>' +
+          '<div class="ap5-o-cta"><a href="#" data-login-open="register" class="btn ' + (k === 0 ? 'btn-primary' : 'btn-dark') + ' !py-3 !px-6">Apply</a><small>Fee ' + x.fee + '</small></div>' +
         '</article>';
       }).join('');
       $$('.ap5-check li').forEach(li => li.classList.add('is-done'));

@@ -181,7 +181,7 @@
           <h1 class="ab5-h1">You may have more loan options than you think.</h1>
         </div>
         <div class="lg:col-span-5">
-          <p class="ab5-lead">See your offers in about 5 minutes. Free, and no impact on your credit score.</p>
+          <p class="ab5-lead">Free to apply. No impact on your credit score.</p>
         </div>
       </div>
     </div>
@@ -304,12 +304,11 @@
         <!-- ============ Step 3 — Finances ============ -->
         <div class="ap-step" data-step="3">
           <p class="ap5-q mt-7">Your current commitments</p>
-          <p class="ap5-sub">What you already pay each month.</p>
 
           <!-- Existing loans -->
           <div class="ap5-card mt-6">
             <div class="ap5-yn-row">
-              <div class="flex items-center gap-3 min-w-0"><span class="ap5-yn-ic"><i class="fa-solid fa-landmark"></i></span><div><b>Do you have any existing loan?</b><small>Including car, home or personal loans</small></div></div>
+              <div class="flex items-center gap-3 min-w-0"><span class="ap5-yn-ic"><i class="fa-solid fa-landmark"></i></span><div><b>Do you have any existing loan?</b></div></div>
               <div class="ap5-seg ap5-seg-sm" role="radiogroup" aria-label="Existing loan">
                 <label><input type="radio" name="hasLoan" value="yes" /><span>Yes</span></label>
                 <label><input type="radio" name="hasLoan" value="no" checked /><span>No</span></label>
@@ -324,7 +323,7 @@
           <!-- Existing cards -->
           <div class="ap5-card mt-4">
             <div class="ap5-yn-row">
-              <div class="flex items-center gap-3 min-w-0"><span class="ap5-yn-ic"><i class="fa-regular fa-credit-card"></i></span><div><b>Do you have any existing credit card?</b><small>From any bank in Bangladesh</small></div></div>
+              <div class="flex items-center gap-3 min-w-0"><span class="ap5-yn-ic"><i class="fa-regular fa-credit-card"></i></span><div><b>Do you have any existing credit card?</b></div></div>
               <div class="ap5-seg ap5-seg-sm" role="radiogroup" aria-label="Existing credit card">
                 <label><input type="radio" name="hasCard" value="yes" /><span>Yes</span></label>
                 <label><input type="radio" name="hasCard" value="no" checked /><span>No</span></label>
@@ -339,7 +338,7 @@
           <!-- Secondary applicant -->
           <div class="ap5-card ap5-co mt-4">
             <label class="ap5-yn-row cursor-pointer">
-              <div class="flex items-center gap-3 min-w-0"><span class="ap5-yn-ic"><i class="fa-solid fa-user-group"></i></span><div><b>Add a secondary applicant</b><small>A co-applicant's income can raise your eligible amount</small></div></div>
+              <div class="flex items-center gap-3 min-w-0"><span class="ap5-yn-ic"><i class="fa-solid fa-user-group"></i></span><div><b>Add a secondary applicant</b></div></div>
               <span class="ap5-switch"><input type="checkbox" id="apCoOn" /><i></i></span>
             </label>
             <div id="apCo" hidden>
@@ -389,7 +388,6 @@
         <!-- ============ Step 4 — Contact ============ -->
         <div class="ap-step" data-step="4">
           <p class="ap5-q mt-7">Where should we send your offers?</p>
-          <p class="ap5-sub">We'll only use these details for your application.</p>
           <div class="grid sm:grid-cols-2 gap-4 mt-6">
             <label class="ct5-f sm:col-span-2"><span>Full name (as per NID)</span><div class="ap5-pre"><i class="fa-regular fa-user"></i><input id="apName" autocomplete="name" placeholder="e.g. Rafiq Ahmed" required /></div></label>
             <label class="ct5-f"><span>Mobile number</span><div class="ap5-pre"><i class="ap5-cc">+88</i><input id="apPhone" type="tel" inputmode="numeric" maxlength="11" placeholder="01XXXXXXXXX" autocomplete="tel-national" required /></div></label>
@@ -404,7 +402,6 @@
           <button type="button" class="btn btn-ghost hidden" id="apBack"><i class="fa-solid fa-arrow-left"></i> <span class="hidden sm:inline">Back</span></button>
           <button type="submit" class="btn btn-primary flex-1 !py-4 text-lg" id="apNext">Continue</button>
         </div>
-        <p class="mt-4 text-center text-xs text-muted"><i class="fa-solid fa-shield-halved text-brand"></i> Checking your options won't affect your credit score.</p>
 
         <!-- Repeater templates -->
         <template id="tplLoan">
@@ -435,7 +432,7 @@
           <p class="text-xs font-bold uppercase tracking-[.14em] text-[#f7a0bb]">Your application</p>
           <div class="flex items-center gap-3 mt-4">
             <span class="ap5-side-ic" id="sumIc"><i class="fa-solid fa-user"></i></span>
-            <div><p class="font-head font-extrabold text-xl leading-tight" id="sumType">Personal Loan</p><p class="text-sm text-white/60">Estimated offer</p></div>
+            <div><p class="font-head font-extrabold text-xl leading-tight" id="sumType">Personal Loan</p></div>
           </div>
           <div class="ap5-emi">
             <small>Est. monthly EMI</small>
@@ -454,7 +451,7 @@
             <p id="sumDtiNote">Lenders usually prefer under 50%.</p>
           </div>
           <a href="https://www.youtube.com/watch?v=2QMfR_PKNSI" target="_blank" rel="noopener" class="ap5-video">
-            <span><i class="fa-solid fa-play"></i></span><div><b>Watch tutorial</b><small>How to apply in 2 minutes</small></div>
+            <span><i class="fa-solid fa-play"></i></span><div><b>Watch tutorial</b><small>How to apply</small></div>
           </a>
         </div>
       </aside>
@@ -470,7 +467,6 @@
     <div class="ap5-found">
       <span class="ap5-found-ic"><i class="fa-solid fa-circle-check"></i></span>
       <div class="flex-1 min-w-0">
-        <p class="text-xs font-bold uppercase tracking-[.14em] text-brand">Great news</p>
         <h2 class="font-head font-extrabold text-[1.6rem] md:text-[2rem] leading-tight mt-1"><span id="resCount">6</span> lenders matched your profile</h2>
         <p class="text-muted mt-1" id="resSummary"></p>
       </div>
@@ -486,16 +482,10 @@
      ========================================================= -->
 <section class="pt-16 md:pt-24 pb-16 md:pb-24">
   <div class="max-w-site mx-auto px-4 md:px-6">
-    <div class="grid sm:grid-cols-2 gap-4">
-      <div class="ap5-why"><span><i class="fa-solid fa-shield-halved"></i></span><div><b>No credit impact</b><small>Soft check only</small></div></div>
-      <div class="ap5-why"><span><i class="fa-solid fa-hand-holding-dollar"></i></span><div><b>100% free</b><small>No fees, ever</small></div></div>
-    </div>
-
-    <div class="grid lg:grid-cols-12 gap-10 mt-16 md:mt-20">
+    <div class="grid lg:grid-cols-12 gap-10">
       <div class="lg:col-span-4">
         <span class="reveal ab5-kicker"><span></span>FAQ</span>
         <h2 class="reveal ab5-h2 mt-4">Questions before you apply?</h2>
-        <p class="reveal ab5-lead mt-3">Can't find your answer? Our team is happy to help.</p>
         <a href="faq.html" class="reveal bl4-all mt-6">All FAQs</a>
       </div>
       <div class="lg:col-span-8 space-y-4" id="faqList">
